@@ -4,10 +4,6 @@ using UnityEngine.InputSystem;
 
 public class Player : PawnBase
 {
-    public void OnSlide(InputAction.CallbackContext context)
-    {
-        if (!context.performed || isSliding) return;
-    }
     [Space(20)]
     [Header("------------------------------------------------")]
     [Space(20)]

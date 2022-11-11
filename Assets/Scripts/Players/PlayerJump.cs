@@ -18,6 +18,7 @@ public class PlayerJump : MonoBehaviour
         if (!context.performed || thisPawn.isSliding || !IsGrounded()) return;
         thisPawn.jumpForce = jumpSpeed;
         thisPawn.isJumping = true;
+        thisPawn.isGrounded = false;
         StartCoroutine(Jump());
     }
     private IEnumerator Jump()
@@ -31,7 +32,9 @@ public class PlayerJump : MonoBehaviour
     }
     private void FixedUpdate() 
     {
-        if (!thisPawn.isJumping && IsGrounded()) {
+        if (!thisPawn.isJumping && IsGrounded())
+        {
+            thisPawn.isGrounded = true;
             thisPawn.jumpForce = 0;
             thisPawn.isJumping = false;
         } else { thisPawn.jumpForce -= jumpSpeed / fallSpeed; }

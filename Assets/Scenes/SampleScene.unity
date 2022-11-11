@@ -569,6 +569,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnMovement
       objectReference: {fileID: 0}
+    - target: {fileID: 7260260382475723995, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
+      propertyPath: instaFallSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: sideSpeed
       value: 30

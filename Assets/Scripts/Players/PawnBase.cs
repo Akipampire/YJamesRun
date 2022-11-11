@@ -14,4 +14,5 @@ public class PawnBase : MonoBehaviour
     public bool isSliding = false;
     public bool isMoving = false;
     public bool isJumping = false;
+    public bool isGrounded = false;
 }
