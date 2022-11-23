@@ -380,6 +380,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3354167243966755810, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
+      propertyPath: sideSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354167243966755810, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
+      propertyPath: lanesXCoordinate.Array.data[0]
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354167243966755810, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
+      propertyPath: lanesXCoordinate.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3688004027699348051, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: m_Name
       value: RightPlayer

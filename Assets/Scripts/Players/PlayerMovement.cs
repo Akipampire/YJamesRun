@@ -32,13 +32,15 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (thisPawn.isMoving && Mathf.Abs(lanesXCoordinate[currentLane] - transform.position.x) < proximity)
-        {
-            thisPawn.isMoving = false;
-            transform.position = new Vector3(lanesXCoordinate[currentLane],transform.position.y,transform.position.z);
-            xDirection = 0;
-        }
+            StopMoving();
+        else if ((xDirection == 1 && transform.position.x > lanesXCoordinate[currentLane]) || (xDirection == -1 && transform.position.x < lanesXCoordinate[currentLane]))
+            StopMoving();
         thisPawn.currentRigidbody.velocity =  new Vector3(xDirection*sideSpeed, thisPawn.jumpForce,forwardSpeed*(1-thisPawn.slowness));
     }
 
-    
+    private void StopMoving() {
+        thisPawn.isMoving = false;
+        transform.position = new Vector3(lanesXCoordinate[currentLane], transform.position.y, transform.position.z);
+        xDirection = 0;
+    }
 }

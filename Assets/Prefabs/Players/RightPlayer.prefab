@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPawn: {fileID: 8539300036904397982}
-  sideSpeed: 0
+  sideSpeed: 50
   proximity: 0.1
   forwardSpeed: 5
   lanesXCoordinate: fbffffff0000000005000000
