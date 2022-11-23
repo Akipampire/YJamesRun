@@ -1,14 +1,16 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class InfiniteForward : MonoBehaviour
 {
-    [SerializeField] private GameObject []Players;
+    //Players
+    [SerializeField] private PlayerMovement []Players;
+    [SerializeField] private float speedProgression = 1;
+    private float mostAdvancedPlayerZ = 0;
+    //Chuncks
     [SerializeField] private GameObject []Chuncks;
-    [SerializeField] private GameObject []LoadedChuncks;
+    [SerializeField] private List<GameObject> LoadedChuncks;
     private int currentZAxis = 20;
 
 
@@ -16,38 +18,69 @@ public class InfiniteForward : MonoBehaviour
     private List<GameObject> ObstacleList;
 
     [SerializeField]
-    private GameObject[] Obstacles;
+    private List<GameObject> SpawnedObstacles;
+
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private float coinSpawnChance = 10;
+
+    [SerializeField] private GameObject[] WallsRight;
+    [SerializeField] private GameObject[] LoadedWallRight;
+    [SerializeField] private GameObject[] WallsLeft;
+    [SerializeField] private GameObject[] LoadedWallLeft;
+
+    private int[] lanesXCoordinate;
+
+    private void Start() {
+        lanesXCoordinate = Players[0].GetComponent<PlayerMovement>().lanesXCoordinate;
+    }
 
     private void FixedUpdate()
     {
-        for(int i = 0; i <= LoadedChuncks.Length - 1; i++)
+        var tempNewMostAdvancedZ = Mathf.Max(Players[0].transform.position.z, Players[1].transform.position.z);
+        //New chunck
+        if (tempNewMostAdvancedZ >= 10 + mostAdvancedPlayerZ) {
+            mostAdvancedPlayerZ = tempNewMostAdvancedZ;
+            LoadChunck();
+            currentZAxis += 10;
+        }
+
+        for (int i = 0; i <= LoadedChuncks.Count - 1; i++)
         {
+            var count = 0; 
             foreach (var player in Players)
             {
+                player.forwardSpeed += Time.fixedDeltaTime / 100 * speedProgression;
                 if (player.transform.position.z > LoadedChuncks[i].transform.position.z + 10)
-                { 
-                    Destroy(LoadedChuncks[i]);
-                    LoadedChuncks[i] = Instantiate(Chuncks[Random.Range(0, Chuncks.Length)],new Vector3(0, 0, currentZAxis), Quaternion.identity);
-                    currentZAxis += 10;
-
-                    //Spawn obstacles on random lanes
-                    Destroy(Obstacles[i]);
-                    SpawnObstacle(currentZAxis, i);
-                }
+                    count++;
+            }
+            if(count == Players.Length) {
+                //Destroy lane that both player doesnt see
+                Destroy(LoadedChuncks[i]);
+                LoadedChuncks.RemoveAt(i);
             }
         }
     }
+    void LoadChunck() {
+        var newChunck = Instantiate(Chuncks[Random.Range(0, Chuncks.Length)], new Vector3(0, 0, currentZAxis), Quaternion.identity);
+        LoadedChuncks.Add(newChunck);
+        //Walls
+        Instantiate(WallsRight[Random.Range(0, WallsRight.Length)], new Vector3(15, 5, currentZAxis - 5), Quaternion.Euler(0, 0, 90),newChunck.transform);
+        Instantiate(WallsLeft[Random.Range(0, WallsLeft.Length)], new Vector3(-15, 5, currentZAxis - 5), Quaternion.Euler(0, 0, -90), newChunck.transform);
 
-    void SpawnObstacle(int plane, int i)
+        //Spawn obstacles on random lanes
+        SpawnObstacle(newChunck);
+        if (Random.Range(0, 100) <= coinSpawnChance) SpawnCoin(newChunck);
+    }
+    void SpawnCoin(GameObject parent) {
+        int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
+        Instantiate(coinPrefab, new Vector3(RandomLane, 0, currentZAxis-5), Quaternion.identity, parent.transform);
+    }
+    void SpawnObstacle(GameObject parent)
     {
         int RandomListNb = Random.Range(0, ObstacleList.Count);
 
-        int RandomLane = Players[0].GetComponent<PlayerMovement>().lanesXCoordinate[Random.Range(0, 3)];
+        int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
 
-        //Debug.Log(RandomListNb);
-        //Debug.Log(ObstacleList[RandomListNb]);
-
-        Obstacles[i] = Instantiate(ObstacleList[RandomListNb], new Vector3(RandomLane, 0, plane), Quaternion.identity);
-
+        SpawnedObstacles.Add(Instantiate(ObstacleList[RandomListNb], new Vector3(RandomLane, 0, currentZAxis), Quaternion.identity,parent.transform));
     }
 }

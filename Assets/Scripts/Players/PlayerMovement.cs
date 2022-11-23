@@ -9,15 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Player thisPawn;
     [SerializeField] private float sideSpeed;
     [SerializeField] private float proximity =  0.1f;
-    [SerializeField] private float forwardSpeed = 5;
+    [SerializeField] public float forwardSpeed = 5;
     [SerializeField] public int[] lanesXCoordinate;
     public int xDirection = 0;
-    private int currentLane;
-
-    private void Start()
-    {
-        currentLane = (int)MathF.Ceiling(lanesXCoordinate.Length/2);
-    }
+    [SerializeField] private int currentLane;
     
     public void OnMovement(InputAction.CallbackContext context) {
         if (!context.performed || thisPawn.isMoving) return;

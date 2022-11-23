@@ -1,5 +1,5 @@
 {
-    "name": "RightPlayerInput",
+    "name": "LeftPlayerInput",
     "maps": [
         {
             "name": "Player",
@@ -48,7 +48,7 @@
                 {
                     "name": "Left",
                     "id": "38a0b6cc-20db-46b6-9c48-2776483ef3dd",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -59,7 +59,7 @@
                 {
                     "name": "Right",
                     "id": "8afa3aeb-4ff7-4233-bb8b-a3d24636e401",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -70,7 +70,7 @@
                 {
                     "name": "",
                     "id": "8f4826d1-ddde-4031-8b53-9459f38c9c3d",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -81,7 +81,7 @@
                 {
                     "name": "",
                     "id": "4118e227-b502-4c96-a21f-08486f437e81",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
