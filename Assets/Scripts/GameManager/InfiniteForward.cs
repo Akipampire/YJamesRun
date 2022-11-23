@@ -9,9 +9,10 @@ public class InfiniteForward : MonoBehaviour
     [SerializeField] private float speedProgression = 1;
     private float mostAdvancedPlayerZ = 0;
     //Chuncks
+    [SerializeField] private int NumberOfChunckToPreLoad = 3;
     [SerializeField] private GameObject []Chuncks;
     [SerializeField] private List<GameObject> LoadedChuncks;
-    private int currentZAxis = 20;
+    private int currentZAxis = -10;
 
 
     [SerializeField]
@@ -32,6 +33,10 @@ public class InfiniteForward : MonoBehaviour
 
     private void Start() {
         lanesXCoordinate = Players[0].GetComponent<PlayerMovement>().lanesXCoordinate;
+        for(int i = 0; i <= NumberOfChunckToPreLoad; i++)
+            LoadChunck();
+
+        
     }
 
     private void FixedUpdate()
@@ -41,7 +46,6 @@ public class InfiniteForward : MonoBehaviour
         if (tempNewMostAdvancedZ >= 10 + mostAdvancedPlayerZ) {
             mostAdvancedPlayerZ = tempNewMostAdvancedZ;
             LoadChunck();
-            currentZAxis += 10;
         }
 
         for (int i = 0; i <= LoadedChuncks.Count - 1; i++)
@@ -70,6 +74,7 @@ public class InfiniteForward : MonoBehaviour
         //Spawn obstacles on random lanes
         SpawnObstacle(newChunck);
         if (Random.Range(0, 100) <= coinSpawnChance) SpawnCoin(newChunck);
+        currentZAxis += 10;
     }
     void SpawnCoin(GameObject parent) {
         int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
@@ -81,6 +86,6 @@ public class InfiniteForward : MonoBehaviour
 
         int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
 
-        SpawnedObstacles.Add(Instantiate(ObstacleList[RandomListNb], new Vector3(RandomLane, 0, currentZAxis), Quaternion.identity,parent.transform));
+        SpawnedObstacles.Add(Instantiate(ObstacleList[RandomListNb], new Vector3(RandomLane, 0, currentZAxis), ObstacleList[RandomListNb].transform.rotation, parent.transform));
     }
 }

@@ -7,7 +7,8 @@ public class PlayerSlide : MonoBehaviour
 {
     [SerializeField] private Player thisPawn;
     [SerializeField] private float instaFallSpeed = 30f;
-    
+    [SerializeField] private float slideDuration = 1f;
+    [SerializeField] private Camera cam;
     public void OnSlide(InputAction.CallbackContext context)
     {
         if (!context.performed || thisPawn.isSliding) return;
@@ -16,19 +17,12 @@ public class PlayerSlide : MonoBehaviour
             thisPawn.jumpForce = -instaFallSpeed;
         }
         thisPawn.isSliding = true;
+        StartCoroutine(Sliding());
     }
 
     private IEnumerator Sliding()
     {
-        yield return null;
-    }
-
-    private void FixedUpdate()
-    {
-        if (thisPawn.isGrounded && thisPawn.isSliding)
-        {
-            thisPawn.isSliding = false;
-            StartCoroutine(Sliding());
-        }
+        yield return new WaitForSeconds(slideDuration);
+        thisPawn.isSliding = false;
     }
 }

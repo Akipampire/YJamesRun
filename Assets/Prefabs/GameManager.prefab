@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &378350586459906071
+--- !u!1 &4898738440956341778
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1581137604734149931}
-  - component: {fileID: 7206342820361269844}
-  - component: {fileID: 8360057568947591758}
-  - component: {fileID: -7848642819444620904}
-  - component: {fileID: 8161876891336794157}
-  - component: {fileID: 8161876891336794158}
+  - component: {fileID: 4898738440956341869}
+  - component: {fileID: 4898738440956341870}
+  - component: {fileID: 2289615706637363649}
+  - component: {fileID: 4898738440956341871}
+  - component: {fileID: 4898738440956341776}
+  - component: {fileID: 4898738440956341777}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -21,13 +21,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1581137604734149931
+--- !u!4 &4898738440956341869
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378350586459906071}
+  m_GameObject: {fileID: 4898738440956341778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,31 +36,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7206342820361269844
+--- !u!114 &4898738440956341870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378350586459906071}
+  m_GameObject: {fileID: 4898738440956341778}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70e0bf021dffef247abdbf09b4ad4623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightPlayerLayer:
+  _PlayerLayer:
     serializedVersion: 2
-    m_Bits: 128
-  LeftPlayerLayer:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!114 &8360057568947591758
+    m_Bits: 8
+--- !u!114 &2289615706637363649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378350586459906071}
+  m_GameObject: {fileID: 4898738440956341778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9ad743cfd291648a277e57d1464e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curveStrength: 0.01
+--- !u!114 &4898738440956341871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898738440956341778}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f487d31e2879be469155cc2c0ee1846, type: 3}
@@ -70,57 +80,36 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speedProgression: 1
+  NumberOfChunckToPreLoad: 3
   Chuncks:
   - {fileID: 8239972810915525614, guid: d5c5bbcbfbc61a548af78b0cc675a70a, type: 3}
-  LoadedChuncks:
-  - {fileID: 0}
-  - {fileID: 0}
+  LoadedChuncks: []
   ObstacleList:
   - {fileID: 1476341502358486584, guid: 506490fbea7c0d04a92118e5eb121190, type: 3}
-  SpawnedObstacles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  coinPrefab: {fileID: 0}
-  coinSpawnChance: 10
---- !u!114 &-7848642819444620904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378350586459906071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e81873f43f5b64da76cdad63f31a85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RightPlayerScore: 0
-  LeftPlayerScore: 0
-  RightPlayerCoinsNumber: 0
-  LeftPlayerCoinsNumber: 0
---- !u!81 &8161876891336794157
+  SpawnedObstacles: []
+  coinPrefab: {fileID: 8562283064884206417, guid: ae06e8f1b35ba784f8e22354cdacaff2, type: 3}
+  coinSpawnChance: 40
+  WallsRight:
+  - {fileID: 4061512364897200965, guid: 3e70df26e01f854429d9ea8b092d340f, type: 3}
+  LoadedWallRight: []
+  WallsLeft:
+  - {fileID: 4061512364897200965, guid: 15c3012222221d5409edc1ce96c6fa7c, type: 3}
+  LoadedWallLeft: []
+--- !u!81 &4898738440956341776
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378350586459906071}
+  m_GameObject: {fileID: 4898738440956341778}
   m_Enabled: 1
---- !u!82 &8161876891336794158
+--- !u!82 &4898738440956341777
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378350586459906071}
+  m_GameObject: {fileID: 4898738440956341778}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
