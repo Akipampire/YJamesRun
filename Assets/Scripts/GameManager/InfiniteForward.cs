@@ -18,6 +18,12 @@ public class InfiniteForward : MonoBehaviour
     [SerializeField]
     private GameObject[] Obstacles;
 
+
+    [SerializeField] private GameObject[] WallsRight;
+    [SerializeField] private GameObject[] LoadedWallRight;
+    [SerializeField] private GameObject[] WallsLeft;
+    [SerializeField] private GameObject[] LoadedWallLeft;
+
     private void FixedUpdate()
     {
         for(int i = 0; i <= LoadedChuncks.Length - 1; i++)
@@ -33,6 +39,12 @@ public class InfiniteForward : MonoBehaviour
                     //Spawn obstacles on random lanes
                     Destroy(Obstacles[i]);
                     SpawnObstacle(currentZAxis, i);
+
+                    //spawn walls
+                    Destroy(LoadedWallRight[i]);
+                    Destroy(LoadedWallLeft[i]);
+                    LoadedWallRight[i] = Instantiate(WallsRight[Random.Range(0, WallsRight.Length)], new Vector3(15, 5, currentZAxis - 5), Quaternion.Euler(0, 0, 90));
+                    LoadedWallLeft[i] = Instantiate(WallsLeft[Random.Range(0, WallsLeft.Length)], new Vector3(-15, 5, currentZAxis - 5), Quaternion.Euler(0, 0, -90));
                 }
             }
         }
