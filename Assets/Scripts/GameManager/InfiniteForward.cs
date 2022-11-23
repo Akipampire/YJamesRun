@@ -50,7 +50,7 @@ public class InfiniteForward : MonoBehaviour
             foreach (var player in Players)
             {
                 player.forwardSpeed += Time.fixedDeltaTime / 100 * speedProgression;
-                if (player.transform.position.z > LoadedChuncks[i].transform.position.z + 10)
+                if (player.transform.position.z > LoadedChuncks[i].transform.position.z + 15)
                     count++;
             }
             if(count == Players.Length) {
