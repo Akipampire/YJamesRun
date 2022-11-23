@@ -301,6 +301,7 @@ MonoBehaviour:
   isSliding: 0
   isMoving: 0
   isJumping: 0
+  isGrounded: 0
   slowOnHitPercentage: 0.1
   recoverPercentage: 0.03
 --- !u!114 &1087974630443224805
@@ -316,8 +317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPawn: {fileID: 8539300036904397982}
-  jumpSpeed: 40
-  fallSpeed: 20
+  jumpSpeed: 50
+  fallSpeed: 4
   distToGround: 1
   LayerHit:
     serializedVersion: 2
@@ -353,4 +354,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPawn: {fileID: 8539300036904397982}
-  instaFallSpeed: 100
+  instaFallSpeed: 30

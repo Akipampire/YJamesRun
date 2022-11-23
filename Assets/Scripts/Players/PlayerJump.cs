@@ -28,7 +28,7 @@ public class PlayerJump : MonoBehaviour
     }
     private bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.001f,LayerHit );
+        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.001f,LayerHit );
     }
     private void FixedUpdate() 
     {
@@ -37,6 +37,6 @@ public class PlayerJump : MonoBehaviour
             thisPawn.isGrounded = true;
             thisPawn.jumpForce = 0;
             thisPawn.isJumping = false;
-        } else { thisPawn.jumpForce -= jumpSpeed / fallSpeed; }
+        } else { thisPawn.jumpForce -= fallSpeed; }
     }
 }

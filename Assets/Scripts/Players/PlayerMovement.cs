@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if (thisPawn.isMoving && Mathf.Abs(lanesXCoordinate[currentLane] - transform.position.x) < proximity)
         {
             thisPawn.isMoving = false;
+            transform.position = new Vector3(lanesXCoordinate[currentLane],transform.position.y,transform.position.z);
             xDirection = 0;
         }
         thisPawn.currentRigidbody.velocity =  new Vector3(xDirection*sideSpeed, thisPawn.jumpForce,forwardSpeed*(1-thisPawn.slowness));

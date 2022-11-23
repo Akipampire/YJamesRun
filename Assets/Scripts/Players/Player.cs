@@ -18,6 +18,7 @@ public class Player : PawnBase
     {
         if (slowness != 0) 
             slowness = Mathf.Max(0f, slowness - (recoverPercentage / 60));
+        if (transform.position.y < 0.5f) transform.position = new Vector3(transform.position.x, 1, transform.position.z);
     }
 }
     
