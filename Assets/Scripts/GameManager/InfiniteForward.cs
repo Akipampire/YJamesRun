@@ -64,8 +64,8 @@ public class InfiniteForward : MonoBehaviour
         var newChunck = Instantiate(Chuncks[Random.Range(0, Chuncks.Length)], new Vector3(0, 0, currentZAxis), Quaternion.identity);
         LoadedChuncks.Add(newChunck);
         //Walls
-        Instantiate(WallsRight[Random.Range(0, WallsRight.Length)], new Vector3(15, 5, currentZAxis - 5), Quaternion.Euler(0, 0, 90),newChunck.transform);
-        Instantiate(WallsLeft[Random.Range(0, WallsLeft.Length)], new Vector3(-15, 5, currentZAxis - 5), Quaternion.Euler(0, 0, -90), newChunck.transform);
+        Instantiate(WallsRight[Random.Range(0, WallsRight.Length)], new Vector3(15, 5, currentZAxis + 5), Quaternion.Euler(0, 0, 90),newChunck.transform);
+        Instantiate(WallsLeft[Random.Range(0, WallsLeft.Length)], new Vector3(-15, 5, currentZAxis + 5), Quaternion.Euler(0, 0, -90), newChunck.transform);
 
         //Spawn obstacles on random lanes
         SpawnObstacle(newChunck);

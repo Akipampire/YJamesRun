@@ -607,6 +607,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8360057568947591758, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
+      propertyPath: WallsLeft.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360057568947591758, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: Players.Array.data[0]
       value: 
       objectReference: {fileID: 631045987}
@@ -614,6 +618,18 @@ PrefabInstance:
       propertyPath: Players.Array.data[1]
       value: 
       objectReference: {fileID: 1755946413}
+    - target: {fileID: 8360057568947591758, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
+      propertyPath: WallsRight.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360057568947591758, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
+      propertyPath: WallsLeft.Array.data[0]
+      value: 
+      objectReference: {fileID: 4061512364897200965, guid: 15c3012222221d5409edc1ce96c6fa7c, type: 3}
+    - target: {fileID: 8360057568947591758, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
+      propertyPath: WallsRight.Array.data[0]
+      value: 
+      objectReference: {fileID: 4061512364897200965, guid: 3e70df26e01f854429d9ea8b092d340f, type: 3}
     - target: {fileID: 8360057568947591758, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: LoadedChuncks.Array.data[0]
       value: 
