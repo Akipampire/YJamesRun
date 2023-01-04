@@ -33,8 +33,10 @@ public class InfiniteForward : MonoBehaviour
 
     private void Start() {
         lanesXCoordinate = Players[0].GetComponent<PlayerMovement>().lanesXCoordinate;
-        for(int i = 0; i <= NumberOfChunckToPreLoad; i++)
-            LoadChunck();        
+        for (int i = 0; i <= NumberOfChunckToPreLoad; i++) {
+            if (i < 3) LoadChunck(true);
+            else LoadChunck();
+        }
     }
 
     private void FixedUpdate()
@@ -62,15 +64,17 @@ public class InfiniteForward : MonoBehaviour
             }
         }
     }
-    void LoadChunck() {
+    void LoadChunck(bool removeObstacle = false) {
         var newChunck = Instantiate(Chuncks[Random.Range(0, Chuncks.Length)], new Vector3(0, 0, currentZAxis), Quaternion.identity);
         LoadedChuncks.Add(newChunck);
         //Walls
         Instantiate(WallsRight[Random.Range(0, WallsRight.Length)], new Vector3(15, 5, currentZAxis + 5), Quaternion.Euler(0, 0, 90),newChunck.transform);
         Instantiate(WallsLeft[Random.Range(0, WallsLeft.Length)], new Vector3(-15, 5, currentZAxis + 5), Quaternion.Euler(0, 0, -90), newChunck.transform);
         //Spawn obstacles on random lanes
-        SpawnObstacle(newChunck);
-        if (Random.Range(0, 100) <= coinSpawnChance) SpawnCoin(newChunck);
+        if (!removeObstacle) {
+            SpawnObstacle(newChunck);
+            if (Random.Range(0, 100) <= coinSpawnChance) SpawnCoin(newChunck);
+        }
         currentZAxis += 10;
     }
     void SpawnCoin(GameObject parent) {
