@@ -214,7 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6b30d2653574f46abbb8d2f5a71a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Player 1
   currentRigidbody: {fileID: 807171122504506424}
+  life: 3
   slowness: 0
   jumpForce: 0
   isSliding: 0

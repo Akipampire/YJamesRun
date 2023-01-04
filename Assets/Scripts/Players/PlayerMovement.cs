@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
             StopMoving();
         else if ((xDirection == 1 && transform.position.x > lanesXCoordinate[currentLane]) || (xDirection == -1 && transform.position.x < lanesXCoordinate[currentLane]))
             StopMoving();
-        thisPawn.currentRigidbody.velocity =  new Vector3(xDirection*sideSpeed, thisPawn.jumpForce,forwardSpeed*(1-thisPawn.slowness));
+        thisPawn.currentRigidbody.velocity = new Vector3(xDirection * sideSpeed, thisPawn.jumpForce, forwardSpeed * (1 - thisPawn.slowness));
+        if (thisPawn.life <= 0) thisPawn.currentRigidbody.velocity = Vector3.zero;
     }
 
     private void StopMoving() {

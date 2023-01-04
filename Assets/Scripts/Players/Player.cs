@@ -21,13 +21,17 @@ public class Player : PawnBase
         }
     }
     private void Hited() {
+        life--;
         slowness = slowOnHitPercentage;
     }
     private void FixedUpdate()
     {
+        //Hit Slowness gestion
         if (slowness != 0) 
             slowness = Mathf.Max(0f, slowness - (recoverPercentage / 60));
-        if (transform.position.y < 0f) transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        //Side Movement
+        if (transform.position.y < 0f) 
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 }
     

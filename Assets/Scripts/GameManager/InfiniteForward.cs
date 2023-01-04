@@ -34,9 +34,7 @@ public class InfiniteForward : MonoBehaviour
     private void Start() {
         lanesXCoordinate = Players[0].GetComponent<PlayerMovement>().lanesXCoordinate;
         for(int i = 0; i <= NumberOfChunckToPreLoad; i++)
-            LoadChunck();
-
-        
+            LoadChunck();        
     }
 
     private void FixedUpdate()
