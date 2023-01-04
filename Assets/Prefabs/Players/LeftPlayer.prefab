@@ -305,9 +305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e81873f43f5b64da76cdad63f31a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPawn: {fileID: 8539300036904397982}
   coinScoreValue: 10
   timeScoreValue: 1
   PlayerScore: 0
+  numberToReachForOneUp: 100
   PlayerCoinsNumber: 0
 --- !u!1 &7874750310339024112
 GameObject:

@@ -9,6 +9,7 @@ public class Player : PawnBase
     [Space(20)]
     [SerializeField] private float slowOnHitPercentage = 0.1f;
     [SerializeField] private float recoverPercentage = 0.03f;
+    private int tookCoin;
     public void OnHit(string type)
     {
         if (type == "slide") {
