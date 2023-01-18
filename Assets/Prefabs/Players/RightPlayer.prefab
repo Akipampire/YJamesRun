@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 7260260382475723995}
   - component: {fileID: 6804401928980622322}
   - component: {fileID: 7086788929493445878}
+  - component: {fileID: 6701384241400955669}
   m_Layer: 3
   m_Name: RightPlayer
   m_TagString: Untagged
@@ -483,3 +484,23 @@ MonoBehaviour:
   PlayerScore: 0
   numberToReachForOneUp: 100
   PlayerCoinsNumber: 0
+--- !u!95 &6701384241400955669
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688004027699348051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1fbe3076ef5d6b748b22d1079a642199, type: 3}
+  m_Controller: {fileID: 9100000, guid: 58966470183af034fbbea01e12bbb18a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

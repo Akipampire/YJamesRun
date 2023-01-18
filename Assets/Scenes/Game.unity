@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 4562619427526546901, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: bf87020d5cc2d3d4f941f061a55570fc, type: 3}
     - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: life
       value: 1

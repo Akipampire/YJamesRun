@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 namespace utils {
@@ -6,6 +7,11 @@ namespace utils {
         X,
         Y,
         Z
+    }
+    public enum Side {
+        Left,
+        Center,
+        Right
     }
     public static partial class StaticMethod {
         #region Vector3
@@ -20,6 +26,11 @@ namespace utils {
         }
         #endregion
         #region Vector2
+        public static Vector2 UpdateAxis(this Vector2 movement, float newValue, VectorAxis axis) {
+            if (axis != VectorAxis.Z) return new Vector2(axis == VectorAxis.X ? newValue : movement.x, axis == VectorAxis.Y ? newValue : movement.y);
+            else Debug.LogError("Incorrect Axis Given to Vector2 UpdateAxis");
+            return movement;
+        }
         public static Vector2 Add(this Vector2 first, Vector2 second) {
             return new Vector2(first.x + second.x, first.y + second.y);
         }

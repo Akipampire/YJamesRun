@@ -21,6 +21,10 @@ public class Player : PawnBase
             Hited();
         }
     }
+    public void OnShoot(InputAction.CallbackContext context) {
+        if (!context.performed) return;
+        GameManager.Instance.AskForTarget(context.ReadValue<float>(), this);
+    }
     private void Hited() {
         life--;
         slowness = slowOnHitPercentage;
