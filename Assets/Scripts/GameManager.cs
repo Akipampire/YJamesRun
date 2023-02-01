@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using utils;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,8 +20,8 @@ public class GameManager : MonoBehaviour
     public void DeleteTarget(Target newTarget) {
         Targets.Remove(newTarget);
     }
-    public Target AskForTarget(float sideIndex,Player player) {
-        return Targets[0];
+    public Target[] AskForTarget(Side side, Transform player) {
+        return Targets.Where(target => target.side == side).Where(target => player.position.z < target.transform.parent.position.z && target.transform.parent.position.z <= player.position.z + 19 ).ToArray();
     }
     private void Start() {
         Instance = this;
@@ -28,11 +30,11 @@ public class GameManager : MonoBehaviour
     void FixedUpdate() {
         if (finished) return;
         foreach (var player in Players)
-            if (player.life <= 0) PlayerLoose(player);
+            if (player.life <= 0) StartCoroutine(PlayerLoose(player));
     }
 
-    private void PlayerLoose(Player looser) {
-        foreach (var player in Players) player.life = 0;
+    private IEnumerator PlayerLoose(Player looser) {
+        yield return new WaitForSeconds(5);
         finished = true;
         EndGame.winner = Players.Where(player => player != looser).First();
         EndGame.enabled = true;

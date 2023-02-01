@@ -15,16 +15,19 @@ public class PlayerJump : MonoBehaviour
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (!context.performed || thisPawn.isSliding || !IsGrounded()) return;
-        thisPawn.jumpForce = jumpSpeed;
+        if (!context.performed || thisPawn.isRolling || !IsGrounded()) return;
+        thisPawn.currentRigidbody.AddForce(Vector3.up * jumpSpeed,ForceMode.Force);
         thisPawn.isJumping = true;
+        thisPawn.animator.SetBool("isJumping", true);
         thisPawn.isGrounded = false;
+        thisPawn.animator.SetBool("isGrounded", false);
         StartCoroutine(Jump());
     }
     private IEnumerator Jump()
     {
         yield return new WaitForSeconds(0.33f);
         thisPawn.isJumping = false;
+        thisPawn.animator.SetBool("isJumping", false);
     }
     private bool IsGrounded()
     {
@@ -32,11 +35,11 @@ public class PlayerJump : MonoBehaviour
     }
     private void FixedUpdate() 
     {
-        if (!thisPawn.isJumping && IsGrounded())
+        if(!thisPawn.isGrounded && !thisPawn.isJumping && IsGrounded())
         {
             thisPawn.isGrounded = true;
-            thisPawn.jumpForce = 0;
+            thisPawn.animator.SetBool("isGrounded", true);
             thisPawn.isJumping = false;
-        } else { thisPawn.jumpForce -= fallSpeed; }
+        }
     }
 }

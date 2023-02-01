@@ -198,10 +198,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1087974630443224805, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
-      propertyPath: distToGround
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2357970928704416983, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -212,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2357970928704416983, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 2357970928704416983, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -250,25 +246,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 4562619427526546901, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: bf87020d5cc2d3d4f941f061a55570fc, type: 3}
+    - target: {fileID: 7260260382475723995, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
+      propertyPath: instaFallSpeed
+      value: 7500
+      objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: life
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
-      propertyPath: name
-      value: Player 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
-      propertyPath: recoverPercentage
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
-      propertyPath: slowOnHitPercentage
-      value: 1
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 8997069570027261619, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: otherPlayer
@@ -311,6 +295,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1087974630443224805, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
+      propertyPath: jumpSpeed
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087974630443224805, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: distToGround
       value: 0.2
       objectReference: {fileID: 0}
@@ -324,7 +312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2357970928704416983, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 2357970928704416983, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: m_LocalPosition.z

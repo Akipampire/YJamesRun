@@ -1,19 +1,18 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Player : PawnBase
 {
     [Space(20)]
     [Header("------------------------------------------------")]
     [Space(20)]
+    [SerializeField] public Animator animator;
     [SerializeField] private float slowOnHitPercentage = 0.1f;
     [SerializeField] private float recoverPercentage = 0.03f;
     private int tookCoin;
     public void OnHit(string type)
     {
         if (type == "slide") {
-            if (!isSliding) Hited();
+            if (!isRolling) Hited();
         }else if(type == "jump") {
             if (!isJumping) Hited();
         }
@@ -21,13 +20,13 @@ public class Player : PawnBase
             Hited();
         }
     }
-    public void OnShoot(InputAction.CallbackContext context) {
-        if (!context.performed) return;
-        GameManager.Instance.AskForTarget(context.ReadValue<float>(), this);
-    }
     private void Hited() {
         life--;
         slowness = slowOnHitPercentage;
+        if (life <= 0) Die();
+    }
+    private void Die() {
+        animator.SetBool("isDead", true);
     }
     private void FixedUpdate()
     {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using utils;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,7 +19,11 @@ public class PlayerMovement : MonoBehaviour
         if (wantedDirection + currentLane < 0 || wantedDirection + currentLane >= lanesXCoordinate.Length) return;
         thisPawn.isMoving = true;
         currentLane += wantedDirection;
+        if (thisPawn.isRolling) SideRoll(wantedDirection);
         xDirection = wantedDirection;
+    }
+    void SideRoll(int dir) {
+        thisPawn.animator.SetInteger("direction",dir);
     }
 
     private void FixedUpdate()
@@ -27,13 +32,14 @@ public class PlayerMovement : MonoBehaviour
             StopMoving();
         else if ((xDirection == 1 && transform.position.x > lanesXCoordinate[currentLane]) || (xDirection == -1 && transform.position.x < lanesXCoordinate[currentLane]))
             StopMoving();
-        thisPawn.currentRigidbody.velocity = new Vector3(xDirection * sideSpeed, thisPawn.jumpForce, forwardSpeed * (1 - thisPawn.slowness));
+        thisPawn.currentRigidbody.velocity = new Vector3(xDirection * sideSpeed, thisPawn.currentRigidbody.velocity.y, forwardSpeed * (1 - thisPawn.slowness));
         if (thisPawn.life <= 0) thisPawn.currentRigidbody.velocity = Vector3.zero;
     }
 
     private void StopMoving() {
+        thisPawn.animator.SetInteger("direction", 0);
         thisPawn.isMoving = false;
-        transform.position = new Vector3(lanesXCoordinate[currentLane], transform.position.y, transform.position.z);
+        transform.position = transform.position.UpdateAxis(lanesXCoordinate[currentLane],VectorAxis.X);
         xDirection = 0;
     }
 }

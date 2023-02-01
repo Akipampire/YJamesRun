@@ -1,5 +1,5 @@
 {
-    "name": "LeftPlayerInput",
+    "name": "RightPlayerInput",
     "maps": [
         {
             "name": "Player",
@@ -27,6 +27,33 @@
                     "name": "Slide",
                     "type": "Button",
                     "id": "157a3b1d-aef3-4579-8171-5f8e0b6b0fdf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShootLeft",
+                    "type": "Button",
+                    "id": "717d48e3-ee5f-42d1-a409-2d0fc0c77801",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShootCenter",
+                    "type": "Button",
+                    "id": "7e24550c-2989-4522-9552-a4345d2a5b43",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShootRight",
+                    "type": "Button",
+                    "id": "692abb59-0a8c-4725-b1b6-1bfb468c58e9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -86,6 +113,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Slide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bbcd904-52fe-40ae-a0c0-e79964bbc557",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e197a31b-7238-487f-aa33-7e60fc6d1f5e",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootCenter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8911d36-3d3e-4678-b896-e69110103be5",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -14,7 +14,7 @@ public class EndGame : MonoBehaviour
     private IDisposable listen;
     private void OnEnable() {
         childrens.SetActive(true);
-        text.text = winner.name + " Win !";
+        text.text = winner.playerName + " Win !";
         StartCoroutine(WaitBeforeListen());
     }
 

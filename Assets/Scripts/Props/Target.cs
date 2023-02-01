@@ -2,8 +2,9 @@ using UnityEngine;
 using utils;
 public class Target : MonoBehaviour
 {
+    [SerializeField] private Activable obstacle;
     public Side side;
-    private void OnEnable() {
+    private void Start() {
         side = transform.parent.position.x == -10 ? Side.Left : transform.parent.position.x == 0 ? Side.Center : Side.Right;
         GameManager.Instance.NewTarget(this);
     }
@@ -11,8 +12,9 @@ public class Target : MonoBehaviour
     private void OnDestroy() {
         GameManager.Instance.DeleteTarget(this);
     }
-
-    public void Trig() {
-        transform.parent.localScale = transform.parent.localScale.UpdateAxis(0, VectorAxis.Y);
+    public void OnTriggerEnter(Collider other) {
+        Debug.Log("hre");
+        if (obstacle) obstacle.Activate();
+        Destroy(other.gameObject);
     }
 }
