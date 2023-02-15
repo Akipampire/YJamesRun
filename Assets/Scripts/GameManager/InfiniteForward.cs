@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using utils;
@@ -7,6 +8,7 @@ public class InfiniteForward : MonoBehaviour
     [Header("---------------- Player ----------------")]
     [SerializeField] private PlayerMovement []Players;
     [SerializeField] private float speedProgression = 1;
+    [SerializeField] public float maxPlayerSpeed;
     private float mostAdvancedPlayerZ = 0;
     [Header("---------------- Chunck ----------------")]
     [SerializeField] private GameObject []Chuncks;
@@ -54,6 +56,7 @@ public class InfiniteForward : MonoBehaviour
         for (int i = 0; i <= LoadedChuncks.Count - 1; i++)
         {
             var count = 0; 
+            maxPlayerSpeed += Time.fixedDeltaTime / 100 * speedProgression;
             foreach (var player in Players)
             {
                 player.forwardSpeed += Time.fixedDeltaTime / 100 * speedProgression;
@@ -67,6 +70,7 @@ public class InfiniteForward : MonoBehaviour
             }
         }
     }
+
     void LoadChunck(bool removeObstacle = false) {
         var newChunck = Instantiate(Chuncks[Random.Range(0, Chuncks.Length)], new Vector3(0, 0, currentZAxis), Quaternion.identity);
         LoadedChuncks.Add(newChunck);

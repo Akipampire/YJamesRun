@@ -5,7 +5,7 @@ public class PivotWall : Activable {
     [SerializeField] MeshCollider col;
     [SerializeField] MeshRenderer rend;
     bool isOpen = true;
-    public override void Activate() {
+    public override void Activate(GameObject trigger = null) {
         if (isOpen) {
             rend.enabled = false;
             col.enabled = false;

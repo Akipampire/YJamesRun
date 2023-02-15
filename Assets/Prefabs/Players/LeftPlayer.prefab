@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8997069570027261619}
   - component: {fileID: 7882837427300934421}
   - component: {fileID: 7310856082210380457}
+  - component: {fileID: 6331861213205891511}
   m_Layer: 3
   m_Name: LeftPlayer
   m_TagString: Untagged
@@ -249,6 +250,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e3477aee-516a-46a6-9f0e-0e32c3804d95
     m_ActionName: Player/ShootRight[/Keyboard/y]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6331861213205891511}
+        m_TargetAssemblyTypeName: PlayerPowerUp, Assembly-CSharp
+        m_MethodName: OnLeftPower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9b4b9629-7366-4e63-b1ff-f6940342ca18
+    m_ActionName: Player/PowerLeft[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6331861213205891511}
+        m_TargetAssemblyTypeName: PlayerPowerUp, Assembly-CSharp
+        m_MethodName: OnCenterPower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ccf7298e-283c-4e13-924d-089cd5293627
+    m_ActionName: Player/PowerCenter[/Keyboard/g]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6331861213205891511}
+        m_TargetAssemblyTypeName: PlayerPowerUp, Assembly-CSharp
+        m_MethodName: OnRightPower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b8f2e904-35cb-49e2-8e61-f71fe2651fc9
+    m_ActionName: Player/PowerRight[/Keyboard/h]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -311,10 +360,10 @@ MonoBehaviour:
   thisPawn: {fileID: 8539300036904397982}
   sideSpeed: 50
   proximity: 0.1
-  forwardSpeed: 5
+  currentLane: 0
   lanesXCoordinate: f6ffffff000000000a000000
   xDirection: 0
-  currentLane: 0
+  forwardSpeed: 5
 --- !u!114 &7260260382475723995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPlayer: {fileID: 0}
   Player: {fileID: 8042753472954659739}
+  rb: {fileID: 807171122504506424}
 --- !u!114 &7882837427300934421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +428,19 @@ MonoBehaviour:
   thisPawn: {fileID: 8539300036904397982}
   movements: {fileID: 3354167243966755810}
   Sphere: {fileID: 8775789613373182834, guid: d035576cd284bf54e8eea26a9bf0c788, type: 3}
+--- !u!114 &6331861213205891511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688004027699348051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe6fd3d3655a2846a842819098b24a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPawn: {fileID: 8539300036904397982}
 --- !u!1 &7874750310339024112
 GameObject:
   m_ObjectHideFlags: 0

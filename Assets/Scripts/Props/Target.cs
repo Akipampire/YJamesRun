@@ -13,7 +13,6 @@ public class Target : MonoBehaviour
         GameManager.Instance.DeleteTarget(this);
     }
     public void OnTriggerEnter(Collider other) {
-        Debug.Log("hre");
         if (obstacle) obstacle.Activate();
         Destroy(other.gameObject);
     }

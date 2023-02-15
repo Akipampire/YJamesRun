@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace utils {
@@ -21,6 +18,12 @@ namespace utils {
         Center,
         Right
     }
+    public enum ColorAxis {
+        R,
+        G,
+        B,
+        A
+    }
     public static partial class StaticMethod {
         #region Vector3
         public static Vector3 Restricted(this Vector3 movement, bool x = false, bool y = false, bool z = false) {
@@ -28,6 +31,9 @@ namespace utils {
         }
         public static Vector3 UpdateAxis(this Vector3 movement, float newValue, VectorAxis axis) {
             return new Vector3(axis == VectorAxis.X ? newValue : movement.x, axis == VectorAxis.Y ? newValue : movement.y, axis == VectorAxis.Z ? newValue : movement.z);
+        }
+        public static Vector3 Add(this Vector3 first, Vector3 second) {
+            return new Vector3(first.x + second.x,first.y + second.y,first.z + second.z);
         }
         public static Vector3 Divide(this Vector3 first, Vector3 second) {
             return new Vector3(first.x/second.x, first.y/second.y, first.z/second.z);
@@ -57,6 +63,11 @@ namespace utils {
         }
         public static Quaternion Update(this Quaternion inQuaternion, float newValue, QuaternionAxis axis) {
             return new Quaternion(axis == QuaternionAxis.X ? newValue : inQuaternion.x, axis == QuaternionAxis.Y ? newValue : inQuaternion.y, axis == QuaternionAxis.Z ? newValue : inQuaternion.z, axis == QuaternionAxis.W ? newValue : inQuaternion.w);
+        }
+        #endregion
+        #region Color
+        public static Color UpdateColor(this Color color,float newValue,ColorAxis axis) {
+            return new Color(axis == ColorAxis.R ? newValue : color.r, axis == ColorAxis.G ? newValue : color.g, axis == ColorAxis.B ? newValue : color.b, axis == ColorAxis.A ? newValue : color.a);
         }
         #endregion
         #region Generic
