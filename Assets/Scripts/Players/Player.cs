@@ -21,11 +21,13 @@ public class Player : PawnBase
         }
     }
     private void Hited() {
+
         life--;
         slowness = slowOnHitPercentage;
         if (life <= 0) Die();
     }
     private void Die() {
+
         animator.SetBool("isDead", true);
     }
     private void FixedUpdate()

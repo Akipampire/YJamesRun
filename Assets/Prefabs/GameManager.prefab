@@ -51,6 +51,16 @@ MonoBehaviour:
   _PlayerLayer:
     serializedVersion: 2
     m_Bits: 8
+  Players:
+  - {fileID: 0}
+  - {fileID: 0}
+  playersUI:
+  - player: {fileID: 0}
+    powerUpCanva: {fileID: 0}
+  - player: {fileID: 0}
+    powerUpCanva: {fileID: 0}
+  EndGame: {fileID: 0}
+  finished: 0
 --- !u!114 &2289615706637363649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9ad743cfd291648a277e57d1464e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curveStrength: 0.01
+  curveStrength: 0.001
 --- !u!114 &4898738440956341871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,21 +90,28 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speedProgression: 1
-  NumberOfChunckToPreLoad: 3
   Chuncks:
   - {fileID: 8239972810915525614, guid: d5c5bbcbfbc61a548af78b0cc675a70a, type: 3}
+  NumberOfChunckToPreLoad: 7
   LoadedChuncks: []
-  ObstacleList:
-  - {fileID: 1476341502358486584, guid: 506490fbea7c0d04a92118e5eb121190, type: 3}
-  SpawnedObstacles: []
-  coinPrefab: {fileID: 8562283064884206417, guid: ae06e8f1b35ba784f8e22354cdacaff2, type: 3}
-  coinSpawnChance: 40
   WallsRight:
   - {fileID: 4061512364897200965, guid: 3e70df26e01f854429d9ea8b092d340f, type: 3}
   LoadedWallRight: []
   WallsLeft:
   - {fileID: 4061512364897200965, guid: 15c3012222221d5409edc1ce96c6fa7c, type: 3}
   LoadedWallLeft: []
+  ObstacleList:
+  - {fileID: 1476341502358486584, guid: 506490fbea7c0d04a92118e5eb121190, type: 3}
+  - {fileID: 4061512364897200965, guid: a564f6e3f3de9114484f18ae8a0aeac4, type: 3}
+  - {fileID: 4780713241706528273, guid: e22dd9c2a17d6014da3069919cad2227, type: 3}
+  - {fileID: 4780713241706528273, guid: f9ace04bca948374cacaf4e0dba0fba2, type: 3}
+  SpawnedObstacles: []
+  powerupPrefabs:
+  - {fileID: 7777082336508030617, guid: 5b24612ca0be6bc44a53ac2955c79461, type: 3}
+  - {fileID: 7777082336508030617, guid: 39282e561e7672b4d9a4c4babf714a25, type: 3}
+  powerUpSpawnChance: 5
+  coinPrefab: {fileID: 8562283064884206417, guid: ae06e8f1b35ba784f8e22354cdacaff2, type: 3}
+  coinSpawnChance: 40
 --- !u!81 &4898738440956341776
 AudioListener:
   m_ObjectHideFlags: 0

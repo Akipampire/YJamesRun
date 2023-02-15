@@ -7,18 +7,21 @@ using utils;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     [SerializeField] public static LayerMask PlayerLayer;
+    [Header("---------------- Player ----------------")]
+    [SerializeField] private LayerMask _PlayerLayer;
     [SerializeField] private Player[] Players;
     [Serializable] private class PlayersUI {
         public Player player;
-        public Canvas powerUpCanva;
+        public PowerUpUI powerUpCanva;
     }
     [SerializeField] private PlayersUI[] playersUI;
-    [SerializeField] private LayerMask _PlayerLayer;
+    [Header("---------------- EndGameMonitoring ----------------")]
     [SerializeField] private EndGame EndGame;
+    [SerializeField] public bool finished = false;
+
     List<Target> Targets = new List<Target>();
-    public static GameManager Instance;
-    public bool finished = false;
 
     public void NewTarget(Target newTarget) {
         Targets.Add(newTarget);
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
         EndGame.enabled = true;
     }
 
-    public void AddPowerUpIcon(Player thisPawn, GameObject inPowerUp) {
+    public void AddPowerUpIcon(Player thisPawn, GameObject inPowerUp,int index) {
          
     }
 }

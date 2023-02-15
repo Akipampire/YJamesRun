@@ -25,7 +25,7 @@ public class InfiniteForward : MonoBehaviour
     [SerializeField]
     private List<GameObject> SpawnedObstacles;
     [Header("---------------- Other ----------------")]
-    [SerializeField] private GameObject[] powerupPrefabs ;
+    [SerializeField] private PowerUP[] powerupPrefabs ;
     [SerializeField] private float powerUpSpawnChance = 5;
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private float coinSpawnChance = 10;

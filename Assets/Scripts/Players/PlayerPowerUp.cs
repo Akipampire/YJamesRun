@@ -12,7 +12,7 @@ public class PlayerPowerUp : MonoBehaviour
         for (int i = 0; i < powerUpInventory.Length; i++) {
             if (powerUpInventory[i].isNull()) {
                 powerUpInventory[i] = InPowerUp;
-                GameManager.Instance.AddPowerUpIcon(thisPawn, InPowerUp);
+                GameManager.Instance.AddPowerUpIcon(thisPawn, InPowerUp,i);
             }
         }
     }
