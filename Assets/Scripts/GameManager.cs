@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,13 @@ using utils;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public static LayerMask PlayerLayer;
-    [SerializeField] private LayerMask _PlayerLayer;
     [SerializeField] private Player[] Players;
+    [Serializable] private class PlayersUI {
+        public Player player;
+        public Canvas powerUpCanva;
+    }
+    [SerializeField] private PlayersUI[] playersUI;
+    [SerializeField] private LayerMask _PlayerLayer;
     [SerializeField] private EndGame EndGame;
     List<Target> Targets = new List<Target>();
     public static GameManager Instance;
@@ -38,5 +44,9 @@ public class GameManager : MonoBehaviour
         finished = true;
         EndGame.winner = Players.Where(player => player != looser).First();
         EndGame.enabled = true;
+    }
+
+    public void AddPowerUpIcon(Player thisPawn, GameObject inPowerUp) {
+         
     }
 }

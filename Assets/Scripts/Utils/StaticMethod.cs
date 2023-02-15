@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
@@ -57,6 +59,16 @@ namespace utils {
             return new Quaternion(axis == QuaternionAxis.X ? newValue : inQuaternion.x, axis == QuaternionAxis.Y ? newValue : inQuaternion.y, axis == QuaternionAxis.Z ? newValue : inQuaternion.z, axis == QuaternionAxis.W ? newValue : inQuaternion.w);
         }
         #endregion
-
+        #region Generic
+        public static T RandomElements<T>(this T[] array) {
+            return array[Random.Range(0, array.Length)];
+        }
+        public static T RandomElements<T>(this List<T> list) {
+            return list[Random.Range(0, list.Count)];
+        }
+        public static bool isNull<T>(this T element) {
+            return element == null || element.Equals(null) || (element is string && string.IsNullOrEmpty(element.ToString()));
+        }
+        #endregion
     }
 }

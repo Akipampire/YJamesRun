@@ -1,35 +1,38 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-
+using utils;
 public class InfiniteForward : MonoBehaviour
 {
     //Players
+    [Header("---------------- Player ----------------")]
     [SerializeField] private PlayerMovement []Players;
     [SerializeField] private float speedProgression = 1;
     private float mostAdvancedPlayerZ = 0;
-    //Chuncks
-    [SerializeField] private int NumberOfChunckToPreLoad = 3;
+    [Header("---------------- Chunck ----------------")]
     [SerializeField] private GameObject []Chuncks;
+    [SerializeField] private int NumberOfChunckToPreLoad = 3;
     [SerializeField] private List<GameObject> LoadedChuncks;
     private int currentZAxis = -10;
-
-
+    [Header("---------------- Wall Prefabs ----------------")]
+    [SerializeField] private GameObject[] WallsRight;
+    [SerializeField] private GameObject[] LoadedWallRight;
+    [SerializeField] private GameObject[] WallsLeft;
+    [SerializeField] private GameObject[] LoadedWallLeft;
+    [Header("---------------- Obstacle ----------------")]
     [SerializeField]
     private List<GameObject> ObstacleList;
 
     [SerializeField]
     private List<GameObject> SpawnedObstacles;
-
+    [Header("---------------- Other ----------------")]
+    [SerializeField] private GameObject[] powerupPrefabs ;
+    [SerializeField] private float powerUpSpawnChance = 5;
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private float coinSpawnChance = 10;
 
-    [SerializeField] private GameObject[] WallsRight;
-    [SerializeField] private GameObject[] LoadedWallRight;
-    [SerializeField] private GameObject[] WallsLeft;
-    [SerializeField] private GameObject[] LoadedWallLeft;
 
     private int[] lanesXCoordinate;
+
 
     private void Start() {
         lanesXCoordinate = Players[0].GetComponent<PlayerMovement>().lanesXCoordinate;
@@ -74,12 +77,17 @@ public class InfiniteForward : MonoBehaviour
         if (!removeObstacle) {
             SpawnObstacle(newChunck);
             if (Random.Range(0, 100) <= coinSpawnChance) SpawnCoin(newChunck);
+            if (Random.Range(0, 100) <= powerUpSpawnChance) SpawnPowerUp(newChunck);
         }
         currentZAxis += 10;
     }
     void SpawnCoin(GameObject parent) {
         int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
-        Instantiate(coinPrefab, new Vector3(RandomLane, 0, currentZAxis-5), Quaternion.identity, parent.transform);
+        Instantiate(coinPrefab, new Vector3(RandomLane, 0, currentZAxis - 5), Quaternion.identity, parent.transform);
+    }
+    void SpawnPowerUp(GameObject parent) {
+        int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
+        Instantiate(powerupPrefabs.RandomElements(), new Vector3(RandomLane, 0, currentZAxis - 5), Quaternion.identity, parent.transform);
     }
     void SpawnObstacle(GameObject parent)
     {
