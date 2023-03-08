@@ -105,11 +105,14 @@ MonoBehaviour:
   - {fileID: 4061512364897200965, guid: 15c3012222221d5409edc1ce96c6fa7c, type: 3}
   LoadedWallLeft: []
   ObstacleList:
-  - {fileID: 1476341502358486584, guid: 506490fbea7c0d04a92118e5eb121190, type: 3}
-  - {fileID: 4061512364897200965, guid: a564f6e3f3de9114484f18ae8a0aeac4, type: 3}
-  - {fileID: 4780713241706528273, guid: e22dd9c2a17d6014da3069919cad2227, type: 3}
-  - {fileID: 4780713241706528273, guid: f9ace04bca948374cacaf4e0dba0fba2, type: 3}
+  - {fileID: 4724013718764385799, guid: 25cc28ee65791b14fac5882c92e6b98f, type: 3}
+  - {fileID: 4724013718764385799, guid: a564f6e3f3de9114484f18ae8a0aeac4, type: 3}
+  - {fileID: 5325057556615045637, guid: e22dd9c2a17d6014da3069919cad2227, type: 3}
+  - {fileID: 5325057556615045637, guid: f9ace04bca948374cacaf4e0dba0fba2, type: 3}
   SpawnedObstacles: []
+  distanceRequired: 30
+  durationRequired: 15
+  actualDuration: 0
   powerupPrefabs:
   - {fileID: 7777082336508030617, guid: 5b24612ca0be6bc44a53ac2955c79461, type: 3}
   - {fileID: 7777082336508030617, guid: 39282e561e7672b4d9a4c4babf714a25, type: 3}

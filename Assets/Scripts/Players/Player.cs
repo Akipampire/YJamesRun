@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Player : PawnBase
@@ -8,17 +9,17 @@ public class Player : PawnBase
     [SerializeField] public Animator animator;
     [SerializeField] private float slowOnHitPercentage = 0.1f;
     [SerializeField] private float recoverPercentage = 0.03f;
-    private int tookCoin;
-    public void OnHit(string type)
+    public void OnHit(ESQUIVE_TYPE[] type)
     {
-        if (type == "slide") {
-            if (!isRolling) Hited();
-        }else if(type == "jump") {
-            if (!isJumping) Hited();
+        bool shouldBeHit = true;
+        if (!type.Contains(ESQUIVE_TYPE.NOT_ESQUIVABLE)) {
+            if (type.Contains(ESQUIVE_TYPE.ROLL))
+                if (isRolling) shouldBeHit = false;
+		    if(shouldBeHit && type.Contains(ESQUIVE_TYPE.JUMP)) 
+                if (isJumping) shouldBeHit = false;
         }
-        else {
-            Hited();
-        }
+        if (shouldBeHit) Hited();
+
     }
     private void Hited() {
 

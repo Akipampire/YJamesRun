@@ -61,6 +61,9 @@ public class GameManager : MonoBehaviour
         return Targets.Where(target => target.side == side).Where(target => player.position.z < target.transform.parent.position.z && target.transform.parent.position.z <= player.position.z + 19 ).ToArray();
     }
 
+    public void PlayerReachWinCondition() {
+        StartCoroutine(PlayerLoose(Players.OrderBy(p => p.transform.position.z).First()));
+    }
     private IEnumerator PlayerLoose(Player looser) {
         yield return new WaitForSeconds(5);
         finished = true;

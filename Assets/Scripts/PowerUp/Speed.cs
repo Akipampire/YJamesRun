@@ -13,7 +13,6 @@ public class Speed : PowerUP
     }
 
     public override void OnUse(Player user) {
-        Debug.Log("re " + GameManager.Instance.infiniteForward.maxPlayerSpeed * speed_boost + user.GetComponent<PlayerMovement>().forwardSpeed);
         user.GetComponent<PlayerMovement>().forwardSpeed = GameManager.Instance.infiniteForward.maxPlayerSpeed * speed_boost;
         GameManager.Instance.PlaySFX(SFXPlayer.SFX_TYPE.SpeedUp);
         GameManager.Instance.ResetSpeed(user);

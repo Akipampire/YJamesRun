@@ -486,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: life
-      value: 99
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: playerName
@@ -598,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: life
-      value: 99
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: playerName
@@ -863,8 +863,12 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
+      propertyPath: durationRequired
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: powerUpSpawnChance
-      value: 100
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: Players.Array.data[0]
