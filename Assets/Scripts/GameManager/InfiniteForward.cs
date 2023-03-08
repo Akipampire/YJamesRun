@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using utils;
 public class InfiniteForward : MonoBehaviour
@@ -46,10 +47,9 @@ public class InfiniteForward : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var tempNewMostAdvancedZ = Mathf.Max(Players[0].transform.position.z, Players[1].transform.position.z);
+		mostAdvancedPlayerZ = Mathf.Max(Players[0].transform.position.z, Players[1].transform.position.z);
         //New chunck
-        if (tempNewMostAdvancedZ >= 10 + mostAdvancedPlayerZ) {
-            mostAdvancedPlayerZ = tempNewMostAdvancedZ;
+        while(mostAdvancedPlayerZ > LoadedChuncks[^NumberOfChunckToPreLoad].transform.position.z + 10) { 
             LoadChunck();
         }
 

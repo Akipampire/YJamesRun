@@ -488,6 +488,10 @@ PrefabInstance:
       propertyPath: life
       value: 99
       objectReference: {fileID: 0}
+    - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
+      propertyPath: playerName
+      value: LeftPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 8997069570027261619, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: otherPlayer
       value: 
@@ -528,14 +532,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1087974630443224805, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
-      propertyPath: jumpSpeed
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1087974630443224805, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
-      propertyPath: distToGround
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2357970928704416983, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -602,7 +598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: life
-      value: 1
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
+      propertyPath: playerName
+      value: RightPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: recoverPercentage
@@ -859,6 +859,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
+      propertyPath: coinSpawnChance
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: powerUpSpawnChance
       value: 100
       objectReference: {fileID: 0}
@@ -877,11 +881,11 @@ PrefabInstance:
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: powerupPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 7809425721093732685, guid: eef3bb03bbcef3e488abfc2ab3418d73, type: 3}
+      objectReference: {fileID: 1869474895897161418, guid: 24d0592725137024c9a8ce43deb171d2, type: 3}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: powerupPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 1869474895897161418, guid: 24d0592725137024c9a8ce43deb171d2, type: 3}
+      objectReference: {fileID: 7809425721093732685, guid: eef3bb03bbcef3e488abfc2ab3418d73, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
 --- !u!1001 &6627959974081798808

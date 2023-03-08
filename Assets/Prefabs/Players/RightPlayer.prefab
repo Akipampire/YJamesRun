@@ -458,7 +458,7 @@ MonoBehaviour:
   thisPawn: {fileID: 8539300036904397982}
   jumpSpeed: 7500
   fallSpeed: 4
-  distToGround: 1
+  distToGround: 0.2
   LayerHit:
     serializedVersion: 2
     m_Bits: 64

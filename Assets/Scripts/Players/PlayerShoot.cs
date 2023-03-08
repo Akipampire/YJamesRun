@@ -20,6 +20,7 @@ public class PlayerShoot : MonoBehaviour
         if (!context.performed) return;
         Target[] targetsFound = GameManager.Instance.AskForTarget(side, transform);
         if (targetsFound.Length > 0) {
+            GameManager.Instance.PlaySFX(SFXPlayer.SFX_TYPE.Throw);
             var newBullet = Instantiate(Sphere,transform.position.UpdateAxis(transform.position.y + 0.5f,VectorAxis.Y), Quaternion.identity);
             newBullet.speed = movements.forwardSpeed * 2;
             newBullet.givenPosition = targetsFound[0].transform.position.UpdateAxis(targetsFound[0].transform.position.y + 0.5f,VectorAxis.Y);

@@ -13,5 +13,6 @@ public class Invicibility : PowerUP
     public override void OnUse(Player user) {
         user.GetComponent<IgnoreCollision>().Invicibility(invicibility_duration, 
             Instantiate(sphere,user.transform.position.Add(new Vector3(0.2f,1f,0f)), Quaternion.identity, user.transform));
-    }
+		GameManager.Instance.PlaySFX(SFXPlayer.SFX_TYPE.Shield);
+	}
 }

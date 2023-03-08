@@ -13,7 +13,8 @@ public class Target : MonoBehaviour
         GameManager.Instance.DeleteTarget(this);
     }
     public void OnTriggerEnter(Collider other) {
-        if (obstacle) obstacle.Activate();
+		if(other.gameObject.layer == Mathf.Log(GameManager.PlayerLayer.value, 2)) return;//Player Shouldn't trigger the target
+		if (obstacle) obstacle.Activate();
         Destroy(other.gameObject);
     }
 }

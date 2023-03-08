@@ -6,7 +6,6 @@ public class Invicibility_Sphere : MonoBehaviour
     [SerializeField] private float minAlpha = 0.1f;
     [SerializeField] private float maxAlpha = 0.9f;
     [SerializeField] private float speed = 1.0f;
-
     private float currentAlpha;
     private bool isIncreasing = true;
     void FixedUpdate() {

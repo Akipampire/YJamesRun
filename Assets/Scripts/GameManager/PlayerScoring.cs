@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScoring : MonoBehaviour
@@ -16,8 +14,11 @@ public class PlayerScoring : MonoBehaviour
     public void  PlayerTookCoin() {
         PlayerScore += coinScoreValue;
         PlayerCoinsNumber++;
-        if(PlayerCoinsNumber % numberToReachForOneUp == 0) thisPawn.life++;
-    }
+        if (PlayerCoinsNumber % numberToReachForOneUp == 0) {
+            thisPawn.life++;
+			GameManager.Instance.PlaySFX(SFXPlayer.SFX_TYPE.OneUp);
+		}
+	}
 
     private void FixedUpdate() {
         PlayerScore += timeScoreValue * Time.fixedDeltaTime;
