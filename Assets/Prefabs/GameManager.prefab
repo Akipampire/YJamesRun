@@ -107,9 +107,9 @@ MonoBehaviour:
   ObstacleList:
   - {fileID: 4724013718764385799, guid: 25cc28ee65791b14fac5882c92e6b98f, type: 3}
   - {fileID: 4724013718764385799, guid: a564f6e3f3de9114484f18ae8a0aeac4, type: 3}
-  - {fileID: 5325057556615045637, guid: e22dd9c2a17d6014da3069919cad2227, type: 3}
+  - {fileID: 4724013718764385799, guid: a564f6e3f3de9114484f18ae8a0aeac4, type: 3}
   - {fileID: 5325057556615045637, guid: f9ace04bca948374cacaf4e0dba0fba2, type: 3}
-  SpawnedObstacles: []
+  ObstacleSpawnProbability: 0.33
   distanceRequired: 30
   durationRequired: 15
   actualDuration: 0
