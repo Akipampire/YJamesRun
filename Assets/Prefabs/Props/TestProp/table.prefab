@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeEsquive: 0100000002000000
+  toDesactivate: {fileID: 2996279216617983793}
 --- !u!65 &5094007259502040450
 BoxCollider:
   m_ObjectHideFlags: 0

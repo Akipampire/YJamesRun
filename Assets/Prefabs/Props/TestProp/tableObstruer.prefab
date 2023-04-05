@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4780713241706528273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 180}
+  m_LocalPosition: {x: 10, y: 0, z: 20}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2430355535050283208}
   - {fileID: 1676776231209235842}
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeEsquive: 02000000
+  toDesactivate: {fileID: 749297548117886804}
 --- !u!65 &4769369607966692550
 BoxCollider:
   m_ObjectHideFlags: 0
