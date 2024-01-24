@@ -101,9 +101,8 @@ public class GameManager : MonoBehaviour
     //    foreach (var player in Players) 
     //        player.forwardSpeed += Time.fixedDeltaTime / 100 * speedProgression;
     //}
-    private void SlowDown() {
-        //yield return new WaitForSeconds(GameManager.SPEED_BOOST_DURATION);
-        //if (player.forwardSpeed > infiniteForward.maxPlayerSpeed) player.forwardSpeed = infiniteForward.maxPlayerSpeed;
-    }
-
+    //private void SlowDown() {
+    //    yield return new WaitForSeconds(GameManager.SPEED_BOOST_DURATION);
+    //    if (player.forwardSpeed > infiniteForward.maxPlayerSpeed) player.forwardSpeed = infiniteForward.maxPlayerSpeed;
+    //}
 }

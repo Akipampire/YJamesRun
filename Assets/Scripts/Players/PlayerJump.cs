@@ -15,7 +15,7 @@ public class PlayerJump : MonoBehaviour
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (!context.performed || thisPawn.isRolling || !IsGrounded()) return;
+        if (!context.performed || !IsGrounded()) return;
         thisPawn.currentRigidbody.AddForce(Vector3.up * jumpSpeed,ForceMode.Force);
         thisPawn.isJumping = true;
         thisPawn.animator.SetBool("isJumping", true);

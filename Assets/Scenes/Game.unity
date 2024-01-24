@@ -1035,5 +1035,9 @@ PrefabInstance:
       propertyPath: m_text
       value: Press any input to continue
       objectReference: {fileID: 0}
+    - target: {fileID: 5387361187188635218, guid: bb7d6bda59e635a4f8f3e83cdfabcb4e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7d6bda59e635a4f8f3e83cdfabcb4e, type: 3}
