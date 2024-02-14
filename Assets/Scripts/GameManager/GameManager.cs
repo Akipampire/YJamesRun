@@ -7,15 +7,15 @@ using utils;
 using static SFXPlayer;
 
 public struct PlayerRoutine {
-    public PlayerRoutine(Coroutine coroutine, Player player) {
+    public PlayerRoutine(Coroutine coroutine,Player player) {
         this.coroutine = coroutine;
         this.player = player;
     }
     public Player player;
     public Coroutine coroutine;
 }
-
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     public static GameManager Instance;
     [SerializeField] public static LayerMask PlayerLayer;
     [SerializeField] public InfiniteForward infiniteForward;
@@ -41,52 +41,13 @@ public class GameManager : MonoBehaviour {
         Instance = this;
         PlayerLayer = _PlayerLayer;
     }
-
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         if (finished) return;
-
-        // Check if both players have died
-        if (Players[0].life <= 0 && Players[1].life <= 0)
-        {
-            // Check if both players are at the same distance
-            if (Mathf.Approximately(Players[0].transform.position.z, Players[1].transform.position.z))
-            {
-                // No winner in a draw
-                DrawGame();
-                return;
-            }
-        }
-
-        // Check if all players have died
-        bool allPlayersDead = true;
         foreach (var player in Players)
-        {
-            if (player.life > 0)
-            {
-                allPlayersDead = false;
-                break;
-            }
-        }
-        if (allPlayersDead)
-        {
-            // Determine the winner
-            Player winner = Players[0].life > 0 ? Players[0] : Players[1];
-            StartCoroutine(PlayerLoose(winner));
-        }
+            if (player.life <= 0) StartCoroutine(PlayerLoose(player));
     }
-
-    // Define the DrawGame method to handle draw condition
-    void DrawGame()
-    {
-        finished = true;
-        EndGame.winner = null; // No winner in a draw
-        EndGame.enabled = true;
-    }
-
-
-    //SFX
-    public void PlaySFX(SFX_TYPE type) {
+	//SFX
+	public void PlaySFX(SFX_TYPE type) {
 		sfx.AskSFX(type);
 	}
     //
@@ -100,31 +61,15 @@ public class GameManager : MonoBehaviour {
         return Targets.Where(target => target.side == side).Where(target => player.position.z < target.transform.parent.position.z && target.transform.parent.position.z <= player.position.z + 19 ).ToArray();
     }
 
-    // Define the PlayerReachWinCondition method
-    public void PlayerReachWinCondition()
-    {
-        // Check if both players have died at the same distance
-        if (Players[0].life <= 0 && Players[1].life <= 0 && Mathf.Approximately(Players[0].transform.position.z, Players[1].transform.position.z))
-        {
-            // No winner in a draw
-            DrawGame();
-        }
-        else
-        {
-            // Determine the winner based on position
-            StartCoroutine(PlayerLoose(Players.OrderBy(p => p.transform.position.z).First()));
-        }
+    public void PlayerReachWinCondition() {
+        StartCoroutine(PlayerLoose(Players.OrderBy(p => p.transform.position.z).First()));
     }
-
-    // Define the PlayerLoose method
-    private IEnumerator PlayerLoose(Player looser)
-    {
+    private IEnumerator PlayerLoose(Player looser) {
         yield return new WaitForSeconds(5);
         finished = true;
         EndGame.winner = Players.Where(player => player != looser).First();
         EndGame.enabled = true;
     }
-
 
     public void AddPowerUpIcon(Player thisPawn, PowerUP inPowerUp, int index) {
         foreach (var playerUI in GameManager.Instance.playersUI) {
