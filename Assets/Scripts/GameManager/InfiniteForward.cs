@@ -100,7 +100,7 @@ public class InfiniteForward : MonoBehaviour
 				Obstacle newObstacle = ObstacleList.RandomElements();
                 newObstacle.transform.position = new Vector3(lanesXCoordinate[i], 0, currentZAxis);//Positionnement sur la lane
                 obstaclesToInstantiate[i] = newObstacle;
-				//Si j'ai deja une voie de libre je fait pas le check, sinon je check si l'obstacle peut être esquiver
+				//Si j'ai deja une voie de libre je fait pas le check, sinon je check si l'obstacle peut ï¿½tre esquiver
 				if (allLanesAreStuck && (newObstacle.typeEsquive.Length > 1 || !newObstacle.typeEsquive.Contains(ESQUIVE_TYPE.NOT_ESQUIVABLE))) allLanesAreStuck = false;
 			}
 		}
