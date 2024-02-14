@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : PawnBase
 {
@@ -9,6 +10,8 @@ public class Player : PawnBase
     [SerializeField] public Animator animator;
     [SerializeField] private float slowOnHitPercentage = 0.1f;
     [SerializeField] private float recoverPercentage = 0.03f;
+    [SerializeField] public Text scoreText;
+
     public void OnHit(ESQUIVE_TYPE[] type)
     {
         bool shouldBeHit = true;
@@ -33,6 +36,7 @@ public class Player : PawnBase
     }
     private void FixedUpdate()
     {
+        scoreText.text = "Score : " + score;
         //Hit Slowness gestion
         if (slowness != 0) 
             slowness = Mathf.Max(0f, slowness - (recoverPercentage / 60));
@@ -41,4 +45,3 @@ public class Player : PawnBase
             transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 }
-    

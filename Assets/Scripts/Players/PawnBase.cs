@@ -10,6 +10,7 @@ public class PawnBase : MonoBehaviour {
     public Rigidbody currentRigidbody;
     //Life
     [SerializeField] public int life;
+    [SerializeField] public int score;
     //
     public float slowness = 0f;
     //Boolean

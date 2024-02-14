@@ -435,6 +435,7 @@ MonoBehaviour:
   playerName: 
   currentRigidbody: {fileID: 807171122504506424}
   life: 3
+  score: 0
   slowness: 0
   isRolling: 0
   isMoving: 0
@@ -443,6 +444,7 @@ MonoBehaviour:
   animator: {fileID: 8690401826433060279}
   slowOnHitPercentage: 0.1
   recoverPercentage: 0.03
+  scoreText: {fileID: 0}
 --- !u!114 &1087974630443224805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +619,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 58966470183af034fbbea01e12bbb18a, type: 2}
+    - target: {fileID: 5868809402280225094, guid: d44002102554c6240937d682061a2ee3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0b90da60016fe04282403f18d0a04be, type: 2}
+    - target: {fileID: 5868809402280225094, guid: d44002102554c6240937d682061a2ee3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0b90da60016fe04282403f18d0a04be, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d44002102554c6240937d682061a2ee3, type: 3}
 --- !u!4 &3349181405556840397 stripped
