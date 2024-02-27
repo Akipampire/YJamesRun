@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ScoreBoard.unity
+    guid: ba4603f45acac1749a17fe58f3d95728
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: e9cb20d2267930e4a839ac30a5b50b94
   - enabled: 1

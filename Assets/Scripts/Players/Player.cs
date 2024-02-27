@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : PawnBase
 {
@@ -10,7 +11,7 @@ public class Player : PawnBase
     [SerializeField] public Animator animator;
     [SerializeField] private float slowOnHitPercentage = 0.1f;
     [SerializeField] private float recoverPercentage = 0.03f;
-    [SerializeField] public Text scoreText;
+    [SerializeField] public TMP_Text scoreText;
 
     public void OnHit(ESQUIVE_TYPE[] type)
     {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using utils;
 using static SFXPlayer;
 
@@ -21,14 +22,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] public InfiniteForward infiniteForward;
     [Header("---------------- Player ----------------")]
     [SerializeField] private LayerMask _PlayerLayer;
-    [SerializeField] private Player[] Players;
+    [SerializeField] public Player[] Players;
+    [SerializeField] public static int scoreLeft;
+    [SerializeField] public static int scoreRight;
     [Serializable] private class PlayersUI {
         public Player player;
         public PowerUpUI powerUpCanva;
     }
     [SerializeField] private PlayersUI[] playersUI;
     [Header("---------------- EndGameMonitoring ----------------")]
-    [SerializeField] private EndGame EndGame;
+    [SerializeField] public static EndGame EndGame;
     [SerializeField] public bool finished = false;
     [Header("---------------- PowerUP ----------------")]
     public static float SPEED_BOOST_DURATION;
@@ -40,6 +43,8 @@ public class GameManager : MonoBehaviour
     private void Start() {
         Instance = this;
         PlayerLayer = _PlayerLayer;
+        if (SceneManager.GetActiveScene().name == "Score Board")
+            DontDestroyOnLoad(this.gameObject);
     }
     void FixedUpdate() {
         if (finished) return;
@@ -62,11 +67,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerReachWinCondition() {
-        StartCoroutine(PlayerLoose(Players.OrderBy(p => p.transform.position.z).First()));
+        StartCoroutine(PlayerLoose(Players.OrderBy(player => player.transform.position.z).First()));
     }
     private IEnumerator PlayerLoose(Player looser) {
         yield return new WaitForSeconds(5);
         finished = true;
+        scoreLeft = Players[0].score;
+        scoreRight = Players[1].score;
+        EndGame.loser = Players.Where(player => player == looser).First();
         EndGame.winner = Players.Where(player => player != looser).First();
         EndGame.enabled = true;
     }

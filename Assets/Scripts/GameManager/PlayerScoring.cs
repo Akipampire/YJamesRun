@@ -1,18 +1,17 @@
 using UnityEngine;
+using System;
 
 public class PlayerScoring : MonoBehaviour
 {
     [SerializeField] private Player thisPawn;
     //scoring
-    public float coinScoreValue = 10;
-    public float timeScoreValue = 1;
-    public float PlayerScore = 0;
-    //Coins
+    public int coinScoreValue = 10;
+    private float PlayerScore = 0f;
     [SerializeField] private int numberToReachForOneUp;
     public int PlayerCoinsNumber = 0;
 
     public void  PlayerTookCoin() {
-        PlayerScore += coinScoreValue;
+        thisPawn.score += coinScoreValue;
         PlayerCoinsNumber++;
         if (PlayerCoinsNumber % numberToReachForOneUp == 0) {
             thisPawn.life++;
@@ -21,6 +20,8 @@ public class PlayerScoring : MonoBehaviour
 	}
 
     private void FixedUpdate() {
-        PlayerScore += timeScoreValue * Time.fixedDeltaTime;
+        PlayerScore = thisPawn.transform.position.z;
+        if (PlayerScore % 10f == 0)
+            thisPawn.score += 1;
     }
 }

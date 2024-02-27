@@ -11,6 +11,7 @@ public class EndGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] float TimeBeforeListen;
     public Player winner;
+    public Player loser;
     private IDisposable listen;
     private void OnEnable() {
         childrens.SetActive(true);

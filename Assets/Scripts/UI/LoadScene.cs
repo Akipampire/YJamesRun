@@ -7,8 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    [SerializeField] public static Player LeftPlayer;
+    [SerializeField] public static Player RightPlayer;
     [SerializeField] float TimeBeforeListen;
     private IDisposable listen;
+    public static int scoreLeft = LeftPlayer.score;
+    public static int scoreRight = RightPlayer.score;
     private void OnEnable() {
         StartCoroutine(WaitBeforeListen());
     }

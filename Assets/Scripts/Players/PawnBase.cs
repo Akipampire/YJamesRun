@@ -11,6 +11,7 @@ public class PawnBase : MonoBehaviour {
     //Life
     [SerializeField] public int life;
     [SerializeField] public int score;
+    [SerializeField] public int coins;
     //
     public float slowness = 0f;
     //Boolean
