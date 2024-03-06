@@ -329,6 +329,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf0ef88d49649a48b29dadf8e223a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &228891836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3264970525489271543, guid: 27bc4aa26dc24dc46a47756ab397cdd2, type: 3}
+  m_PrefabInstance: {fileID: 26754959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &403097968 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7899888521811969895, guid: 27bc4aa26dc24dc46a47756ab397cdd2, type: 3}
@@ -421,12 +432,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
+      propertyPath: lifeText
+      value: 
+      objectReference: {fileID: 228891836}
+    - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 2005895233}
     - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: playerName
-      value: LeftPlayer
+      value: James
       objectReference: {fileID: 0}
     - target: {fileID: 8997069570027261619, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: otherPlayer
@@ -537,12 +552,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
+      propertyPath: lifeText
+      value: 
+      objectReference: {fileID: 1584375087}
+    - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 403097968}
     - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: playerName
-      value: RightPlayer
+      value: Kyky
       objectReference: {fileID: 0}
     - target: {fileID: 8539300036904397982, guid: 1d655deff2e82c040902403f86c8e3a1, type: 3}
       propertyPath: recoverPercentage
@@ -685,6 +704,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f487d31e2879be469155cc2c0ee1846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1584375087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3264970525489271543, guid: 27bc4aa26dc24dc46a47756ab397cdd2, type: 3}
+  m_PrefabInstance: {fileID: 1867104617}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1755946413 stripped

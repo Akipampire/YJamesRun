@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8466253627695262214}
   - component: {fileID: 3076684686574654907}
   - component: {fileID: 7040873801179402241}
-  - component: {fileID: 4434020137334341781}
   - component: {fileID: 4724013718764385799}
+  - component: {fileID: 3177782209633765986}
   m_Layer: 8
   m_Name: normalWall
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4061512364897200965}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -10, y: 0, z: 140}
+  m_LocalPosition: {x: -10, y: 0, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4434020137334341781
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4061512364897200965}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &4724013718764385799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,4 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeEsquive: 00000000
-  toDesactivate: {fileID: 0}
+  toDesactivate: {fileID: 3177782209633765986}
+--- !u!65 &3177782209633765986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4061512364897200965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}

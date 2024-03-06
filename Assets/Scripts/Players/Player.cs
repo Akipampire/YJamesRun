@@ -12,6 +12,7 @@ public class Player : PawnBase
     [SerializeField] private float slowOnHitPercentage = 0.1f;
     [SerializeField] private float recoverPercentage = 0.03f;
     [SerializeField] public TMP_Text scoreText;
+    [SerializeField] public TMP_Text lifeText;
 
     public void OnHit(ESQUIVE_TYPE[] type)
     {
@@ -38,6 +39,7 @@ public class Player : PawnBase
     private void FixedUpdate()
     {
         scoreText.text = "Score : " + score;
+        lifeText.text = "Life : " + life;
         //Hit Slowness gestion
         if (slowness != 0) 
             slowness = Mathf.Max(0f, slowness - (recoverPercentage / 60));

@@ -10,8 +10,6 @@ public class ScoreBoard : MonoBehaviour
     private int[] board = new int[10];
 
     void Start(){
-        Debug.Log(board.Length);
-        Debug.Log(board);
         //récupère les anciens scores enregistrés dans les playerprefs
         //prend la valeur de base 0 si les scores n'existent pas encore
         board[0] = PlayerPrefs.GetInt("first", 0);

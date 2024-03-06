@@ -38,15 +38,20 @@ public class GameManager : MonoBehaviour
     List<PlayerRoutine> resetSpeedRoutines = new List<PlayerRoutine>();
     [Header("---------------- SFX ----------------")]
     [SerializeField] SFXPlayer sfx;
+    private int dead;
 
     private void Start() {
         Instance = this;
         PlayerLayer = _PlayerLayer;
     }
     void FixedUpdate() {
+        dead = 0;
         if (finished) return;
         foreach (var player in Players)
-            if (player.life <= 0) StartCoroutine(PlayerLoose(player));
+            if (player.life <= 0) {
+                dead += 1;
+            }
+        if (dead >= 2) PlayerReachWinCondition();
     }
 	//SFX
 	public void PlaySFX(SFX_TYPE type) {
@@ -68,9 +73,9 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator PlayerLoose(Player looser) {
+        EndGame.winner = Players.Where(player => player != looser).First();
         yield return new WaitForSeconds(5);
         finished = true;
-        EndGame.winner = Players.Where(player => player != looser).First();
         if (looser.score == EndGame.winner.score) { //if the scores are the same
             draw = true;
             EndGame.Draw();
