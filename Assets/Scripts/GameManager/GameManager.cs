@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using utils;
 using static SFXPlayer;
 
@@ -22,16 +21,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] public InfiniteForward infiniteForward;
     [Header("---------------- Player ----------------")]
     [SerializeField] private LayerMask _PlayerLayer;
-    [SerializeField] public Player[] Players;
-    [SerializeField] public static int scoreLeft;
-    [SerializeField] public static int scoreRight;
+    [SerializeField] private Player[] Players;
+    private int score;
+    private bool draw;
     [Serializable] private class PlayersUI {
         public Player player;
         public PowerUpUI powerUpCanva;
     }
     [SerializeField] private PlayersUI[] playersUI;
     [Header("---------------- EndGameMonitoring ----------------")]
-    [SerializeField] public static EndGame EndGame;
+    [SerializeField] private EndGame EndGame;
     [SerializeField] public bool finished = false;
     [Header("---------------- PowerUP ----------------")]
     public static float SPEED_BOOST_DURATION;
@@ -43,8 +42,6 @@ public class GameManager : MonoBehaviour
     private void Start() {
         Instance = this;
         PlayerLayer = _PlayerLayer;
-        if (SceneManager.GetActiveScene().name == "Score Board")
-            DontDestroyOnLoad(this.gameObject);
     }
     void FixedUpdate() {
         if (finished) return;
@@ -67,16 +64,21 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerReachWinCondition() {
-        StartCoroutine(PlayerLoose(Players.OrderBy(player => player.transform.position.z).First()));
+        StartCoroutine(PlayerLoose(Players.OrderBy(p => p.score).First()));
     }
     private IEnumerator PlayerLoose(Player looser) {
         yield return new WaitForSeconds(5);
         finished = true;
-        scoreLeft = Players[0].score;
-        scoreRight = Players[1].score;
-        EndGame.loser = Players.Where(player => player == looser).First();
         EndGame.winner = Players.Where(player => player != looser).First();
-        EndGame.enabled = true;
+        if (looser.score == EndGame.winner.score) {
+            draw = true;
+            EndGame.Draw();
+        }
+        else if (looser.score > EndGame.winner.score)
+            EndGame.winner = looser; //don't ask any questions I do what I can okay
+        PlayerPrefs.SetInt("actual", EndGame.winner.score);
+        if (!draw)
+            EndGame.enabled = true;
     }
 
     public void AddPowerUpIcon(Player thisPawn, PowerUP inPowerUp, int index) {
@@ -110,7 +112,8 @@ public class GameManager : MonoBehaviour
     //        player.forwardSpeed += Time.fixedDeltaTime / 100 * speedProgression;
     //}
     //private void SlowDown() {
-    //    yield return new WaitForSeconds(GameManager.SPEED_BOOST_DURATION);
-    //    if (player.forwardSpeed > infiniteForward.maxPlayerSpeed) player.forwardSpeed = infiniteForward.maxPlayerSpeed;
+        //yield return new WaitForSeconds(GameManager.SPEED_BOOST_DURATION);
+        //if (player.forwardSpeed > infiniteForward.maxPlayerSpeed) player.forwardSpeed = infiniteForward.maxPlayerSpeed;
     //}
+
 }

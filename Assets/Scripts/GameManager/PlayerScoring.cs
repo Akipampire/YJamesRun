@@ -18,6 +18,6 @@ public class PlayerScoring : MonoBehaviour
 	}
 
     private void FixedUpdate() {
-        thisPawn.score = (int)thisPawn.transform.position.z + coinScoreValue*PlayerCoinsNumber;
+        thisPawn.score = (int)thisPawn.transform.position.z + coinScoreValue*PlayerCoinsNumber; //le score vaut la distance parcourue depuis le début + 10 par pièces récupérées
     }
 }

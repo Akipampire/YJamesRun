@@ -11,7 +11,6 @@ public class EndGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] float TimeBeforeListen;
     public Player winner;
-    public Player loser;
     private IDisposable listen;
     private void OnEnable() {
         childrens.SetActive(true);
@@ -31,5 +30,11 @@ public class EndGame : MonoBehaviour
     private void LoadMenu() {
         listen.Dispose();
         SceneManager.LoadScene(0);
+    }
+
+    public void Draw() {
+        childrens.SetActive(true);
+        text.text = "It's a draw !";
+        StartCoroutine(WaitBeforeListen());
     }
 }

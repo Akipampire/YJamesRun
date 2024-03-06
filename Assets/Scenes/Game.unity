@@ -966,6 +966,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1755946413}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
+      propertyPath: NumberOfChunckToPreLoad
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: powerupPrefabs.Array.size
       value: 2
       objectReference: {fileID: 0}
