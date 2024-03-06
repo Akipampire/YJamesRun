@@ -66,19 +66,22 @@ public class GameManager : MonoBehaviour
     public void PlayerReachWinCondition() {
         StartCoroutine(PlayerLoose(Players.OrderBy(p => p.score).First()));
     }
+
     private IEnumerator PlayerLoose(Player looser) {
         yield return new WaitForSeconds(5);
         finished = true;
         EndGame.winner = Players.Where(player => player != looser).First();
-        if (looser.score == EndGame.winner.score) {
+        if (looser.score == EndGame.winner.score) { //if the scores are the same
             draw = true;
             EndGame.Draw();
         }
-        else if (looser.score > EndGame.winner.score)
-            EndGame.winner = looser; //don't ask any questions I do what I can okay
-        PlayerPrefs.SetInt("actual", EndGame.winner.score);
-        if (!draw)
-            EndGame.enabled = true;
+        else if (looser.life > 0) { //if defeat because but still alive
+            if (looser.score > EndGame.winner.score) //if the looser's score is superior to the winner's
+                EndGame.winner = looser; //replace the winner by the looser ("priority to score")
+        }
+        PlayerPrefs.SetInt("actual", EndGame.winner.score); //enters the score in the playerprefs for the score board at the end
+        if (!draw) //if it's not a draw
+            EndGame.enabled = true; //launch the EndGame casual script
     }
 
     public void AddPowerUpIcon(Player thisPawn, PowerUP inPowerUp, int index) {
