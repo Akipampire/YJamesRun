@@ -867,6 +867,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2289615706637363649, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
+      propertyPath: curveStrength
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4898738440956341778, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -969,7 +973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: maxPlayerSpeed
-      value: 25
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: coinSpawnChance
@@ -981,7 +985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: speedProgression
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4898738440956341871, guid: 74d268da3c5cd38428f657e2e4f7ca77, type: 3}
       propertyPath: powerUpSpawnChance

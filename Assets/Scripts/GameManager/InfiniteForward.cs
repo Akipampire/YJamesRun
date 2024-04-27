@@ -85,11 +85,11 @@ public class InfiniteForward : MonoBehaviour
     }
     void SpawnCoin(GameObject parent) {
         int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
-        Instantiate(coinPrefab, new Vector3(RandomLane, 0, currentZAxis - 5), Quaternion.identity, parent.transform);
+        Instantiate(coinPrefab, new Vector3(RandomLane, 1, currentZAxis - 5), Quaternion.identity, parent.transform);
     }
     void SpawnPowerUp(GameObject parent) {
         int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
-        Instantiate(powerupPrefabs.RandomElements(), new Vector3(RandomLane, 0, currentZAxis - 5), Quaternion.identity, parent.transform);
+        Instantiate(powerupPrefabs.RandomElements(), new Vector3(RandomLane, 1, currentZAxis - 5), Quaternion.identity, parent.transform);
     }
     void SpawnObstacle(GameObject actualChunck)
     {
@@ -100,7 +100,7 @@ public class InfiniteForward : MonoBehaviour
 				Obstacle newObstacle = ObstacleList.RandomElements();
                 newObstacle.transform.position = new Vector3(lanesXCoordinate[i], 0, currentZAxis);//Positionnement sur la lane
                 obstaclesToInstantiate[i] = newObstacle;
-				//Si j'ai deja une voie de libre je fait pas le check, sinon je check si l'obstacle peut être esquiver
+				//Si j'ai deja une voie de libre je fait pas le check, sinon je check si l'obstacle peut ï¿½tre esquiver
 				if (allLanesAreStuck && (newObstacle.typeEsquive.Length > 1 || !newObstacle.typeEsquive.Contains(ESQUIVE_TYPE.NOT_ESQUIVABLE))) allLanesAreStuck = false;
 			}
 		}

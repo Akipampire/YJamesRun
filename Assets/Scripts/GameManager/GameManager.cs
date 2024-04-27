@@ -47,10 +47,11 @@ public class GameManager : MonoBehaviour
     void FixedUpdate() {
         dead = 0;
         if (finished) return;
-        foreach (var player in Players)
+        foreach (var player in Players) {
             if (player.life <= 0) {
                 dead += 1;
             }
+        }
         if (dead >= 2) PlayerReachWinCondition();
     }
 	//SFX
@@ -113,7 +114,8 @@ public class GameManager : MonoBehaviour
 	}
 	private IEnumerator ResetSpeed(PlayerMovement player) {
         yield return new WaitForSeconds(GameManager.SPEED_BOOST_DURATION);
-        if (player.forwardSpeed > infiniteForward.maxPlayerSpeed) player.forwardSpeed = infiniteForward.maxPlayerSpeed;
+        if (player.forwardSpeed > infiniteForward.maxPlayerSpeed) 
+        player.forwardSpeed = infiniteForward.maxPlayerSpeed;
     }
     //public void Accelerate() {
     //    foreach (var player in Players) 

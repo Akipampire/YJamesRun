@@ -10,7 +10,7 @@ public enum ESQUIVE_TYPE {
 }
 public class Obstacle : MonoBehaviour {
     [SerializeField] public ESQUIVE_TYPE[] typeEsquive;
-    [SerializeField] public BoxCollider toDesactivate;
+    [SerializeField] public BoxCollider[] toDesactivate;
 	private List<Player> playersHit = new List<Player>();
 
     private void OnTriggerEnter(Collider other) {
@@ -20,11 +20,19 @@ public class Obstacle : MonoBehaviour {
 				GameManager.Instance.PlaySFX(SFXPlayer.SFX_TYPE.Hit);
 				playersHit.Add(playerHit);
                 playersHit.Last().OnHit(typeEsquive);
-                if (toDesactivate) toDesactivate.enabled = false;
+                if (toDesactivate.Length > 0) {
+                    foreach(BoxCollider collider in toDesactivate) {
+                        collider.enabled = false;
+                    }
+                }
 			}
 		}
     }
 	private void OnTriggerExit(Collider other) {
-		if (toDesactivate) toDesactivate.enabled = true;
+		if (toDesactivate.Length > 0){
+            foreach(BoxCollider collider in toDesactivate) {
+                collider.enabled = false;
+            }
+        }
 	}
 }
