@@ -95,7 +95,8 @@ public class GameManager : MonoBehaviour
 	}
 	private IEnumerator ResetSpeed(PlayerMovement player) {
         yield return new WaitForSeconds(GameManager.SPEED_BOOST_DURATION);
-        if (player.forwardSpeed > infiniteForward.maxPlayerSpeed) player.forwardSpeed = infiniteForward.maxPlayerSpeed;
+        if (player.forwardSpeed > infiniteForward.maxPlayerSpeed) 
+            player.forwardSpeed = infiniteForward.maxPlayerSpeed;
     }
     //public void Accelerate() {
     //    foreach (var player in Players) 

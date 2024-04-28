@@ -8,10 +8,7 @@ public class IgnoreCollision : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     private Coroutine launchedInvincibility = null;
 	private Invicibility_Sphere previousSphere;
-	void Start()
-    {
-        Physics.IgnoreCollision(otherPlayer,Player,true);
-    }
+	
 
     public Coroutine Invicibility(float duration, Invicibility_Sphere sphere) {
 		Physics.IgnoreLayerCollision(Player.gameObject.layer, LayerMask.NameToLayer("Obstacle"), true);
