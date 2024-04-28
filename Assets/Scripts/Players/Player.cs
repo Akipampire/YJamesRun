@@ -49,6 +49,7 @@ public class Player : PawnBase
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
         capsuleCollider.gameObject.layer = LayerMask.NameToLayer("Ignoring");
 		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Obstacle"), true);
+		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Default"), true);
         Invincible = true;
         return StartCoroutine(EndInvincibility());
     }
@@ -59,6 +60,7 @@ public class Player : PawnBase
         Invincible = false;
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
         capsuleCollider.gameObject.layer = LayerMask.NameToLayer("Player");
+		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Default"), false);
 		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Obstacle"), false);
         hitCount = 0;
     }
