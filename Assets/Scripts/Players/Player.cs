@@ -58,7 +58,8 @@ public class Player : PawnBase
         yield return new WaitForSeconds(2.5f);
         Invincible = false;
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
-        capsuleCollider.gameObject.layer = LayerMask.NameToLayer("Player");    
+        capsuleCollider.gameObject.layer = LayerMask.NameToLayer("Player");
+		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Obstacle"), false);
         hitCount = 0;
     }
     private void Die() {
