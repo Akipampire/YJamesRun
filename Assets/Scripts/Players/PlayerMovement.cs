@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
                     xDirection = 1;
                     currentLane += 1;
                 }
+                
             }
         }
     }
