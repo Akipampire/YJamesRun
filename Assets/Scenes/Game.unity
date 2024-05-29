@@ -363,6 +363,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 456281374984435347, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 807171122504506424, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: m_UseGravity
       value: 1
@@ -431,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: df4384f6dc3e6e7439b89c78b4cf5088, type: 2}
+    - target: {fileID: 7141676889685005079, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: d44002102554c6240937d682061a2ee3, type: 3}
     - target: {fileID: 7260260382475723995, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: instaFallSpeed
       value: 7500
@@ -443,6 +451,10 @@ PrefabInstance:
       propertyPath: life
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1055920573}
     - target: {fileID: 8539300036904397982, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
       propertyPath: lifeText
       value: 
@@ -488,6 +500,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca75c35a75155fa43bcd2703fa61d2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1055920573 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7357765886227870269, guid: 07d1c2a5b85fd0642874cbf70a0644f4, type: 3}
+  m_PrefabInstance: {fileID: 516177289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1067662348
 PrefabInstance:
   m_ObjectHideFlags: 0
