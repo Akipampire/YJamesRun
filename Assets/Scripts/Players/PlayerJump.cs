@@ -8,14 +8,13 @@ public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private Player thisPawn;
     [SerializeField] private float jumpSpeed;
-    [SerializeField] private float fallSpeed;
     [SerializeField] private float distToGround = 1f;
     [SerializeField] private LayerMask LayerHit;
     private RaycastHit hit;
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (!context.performed || !IsGrounded()) return;
+        if (!context.performed || thisPawn.isRolling || !IsGrounded()) return;
         thisPawn.currentRigidbody.AddForce(Vector3.up * jumpSpeed,ForceMode.Force);
         thisPawn.isJumping = true;
         thisPawn.animator.SetBool("isJumping", true);

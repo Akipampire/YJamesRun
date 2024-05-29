@@ -5,7 +5,7 @@ public class PlayerScoring : MonoBehaviour
 {
     [SerializeField] private Player thisPawn;
     //scoring
-    public int coinScoreValue = 10;
+    public int coinScoreValue = 5;
     [SerializeField] private int numberToReachForOneUp;
     public int PlayerCoinsNumber = 0;
 

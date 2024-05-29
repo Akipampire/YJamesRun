@@ -15,7 +15,6 @@ public class Player : PawnBase
     [SerializeField] public TMP_Text scoreText;
     [SerializeField] public TMP_Text lifeText;
     public bool Invincible = false;
-    private CapsuleCollider capsuleCollider;
     public bool shouldBeHit = true;
     public int hitCount = 0;
 
@@ -35,7 +34,6 @@ public class Player : PawnBase
         }
     }
     private void Hited() {
-        Debug.Log("Hited");
         life--;
         slowness = slowOnHitPercentage;
         if (life <= 0){
@@ -46,27 +44,35 @@ public class Player : PawnBase
     }
 
     private Coroutine StartInvincibility() {
-        capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
-        capsuleCollider.gameObject.layer = LayerMask.NameToLayer("Ignoring");
-		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Obstacle"), true);
-		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Default"), true);
+        gameObject.layer = LayerMask.NameToLayer("Ignoring");
+		Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Obstacle"), true);
+		Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Default"), true);
         Invincible = true;
         return StartCoroutine(EndInvincibility());
     }
 
     private IEnumerator EndInvincibility() {
-        Debug.Log("Invincibility Start");
         yield return new WaitForSeconds(2.5f);
         Invincible = false;
-        capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
-        capsuleCollider.gameObject.layer = LayerMask.NameToLayer("Player");
-		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Default"), false);
-		Physics.IgnoreLayerCollision(capsuleCollider.gameObject.layer, LayerMask.NameToLayer("Obstacle"), false);
+        gameObject.layer = LayerMask.NameToLayer("Player");
+		Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Default"), false);
+		Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Obstacle"), false);
         hitCount = 0;
     }
     private void Die() {
         animator.SetBool("isDead", true);
     }
+
+    private Coroutine Mais()
+    {
+        return StartCoroutine(IgnorePUpEnd());
+    }
+    private IEnumerator IgnorePUpEnd()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.layer = LayerMask.NameToLayer("Player");
+    }
+
     private void FixedUpdate()
     {
         scoreText.text = "Score : " + score;
@@ -77,5 +83,12 @@ public class Player : PawnBase
         //Side Movement
         if (transform.position.y < 0f) 
             transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
+        if (gameObject.layer == LayerMask.NameToLayer("NoPUp"))
+            Mais();
+
+        if (isGrounded)
+            currentRigidbody.velocity = new Vector3(currentRigidbody.velocity.x, 0, currentRigidbody.velocity.z);
     }
+
 }

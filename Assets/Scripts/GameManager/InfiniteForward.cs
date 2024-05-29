@@ -22,21 +22,21 @@ public class InfiniteForward : MonoBehaviour
     [Header("---------------- Obstacle ----------------")]
     [SerializeField] private List<Obstacle> ObstacleList;
     [SerializeField] private float ObstacleSpawnProbability = 0.33f;
-	[Header("---------------- Win Condition ----------------")]
-    [SerializeField] public float distanceRequired = 30f;
-	[SerializeField] public float durationRequired = 15f;
-    public float actualDuration = 0f;
 	[Header("---------------- Other ----------------")]
     [SerializeField] private PowerUP[] powerupPrefabs ;
     [SerializeField] private float powerUpSpawnChance = 5;
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private float coinSpawnChance = 10;
 
+    private float mostAdvancedPlayerZ;
+    private float lessAdvancedPlayerZ;
 
+    private float speedGain;
     private int[] lanesXCoordinate;
 
 
     private void Start() {
+        maxPlayerSpeed = 5;
         lanesXCoordinate = Players[0].GetComponent<PlayerMovement>().lanesXCoordinate;
         for (int i = 0; i <= NumberOfChunckToPreLoad; i++) {
             if (i < 3) LoadChunck(true);
@@ -45,20 +45,18 @@ public class InfiniteForward : MonoBehaviour
     }
 	private void FixedUpdate()
     {
-		float mostAdvancedPlayerZ = Mathf.Max(Players[0].transform.position.z, Players[1].transform.position.z);
-		float lessAdvancedPlayerZ = Mathf.Min(Players[0].transform.position.z, Players[1].transform.position.z);
-        //Victory condition
-        if (lessAdvancedPlayerZ < mostAdvancedPlayerZ - distanceRequired) actualDuration += Time.deltaTime;
-        else actualDuration = 0;
-        if (actualDuration >= durationRequired) GameManager.Instance.PlayerReachWinCondition();
+		mostAdvancedPlayerZ = Mathf.Max(Players[0].transform.position.z, Players[1].transform.position.z);
+		lessAdvancedPlayerZ = Mathf.Min(Players[0].transform.position.z, Players[1].transform.position.z);
 		//New chunck
 		while (mostAdvancedPlayerZ > LoadedChuncks[^NumberOfChunckToPreLoad].transform.position.z + 10) { 
             LoadChunck();
         }
         //Speeds
-        float speedGain = Time.fixedDeltaTime / 100 * speedProgression;
+        speedGain = Time.fixedDeltaTime / 100 * speedProgression;
 		maxPlayerSpeed += speedGain;
-        foreach (var player in Players) player.forwardSpeed += speedGain;
+        foreach (var player in Players) {
+            player.forwardSpeed += speedGain;
+        }
 		//chunck gen
 		for (int i = 0; i < LoadedChuncks.Count;) {
             GameObject Chunck = LoadedChuncks[i];
@@ -89,7 +87,10 @@ public class InfiniteForward : MonoBehaviour
     }
     void SpawnPowerUp(GameObject parent) {
         int RandomLane = lanesXCoordinate[Random.Range(0, lanesXCoordinate.Length)];
-        Instantiate(powerupPrefabs.RandomElements(), new Vector3(RandomLane, 1, currentZAxis - 5), Quaternion.identity, parent.transform);
+        if(!Physics.Raycast(new Vector3(RandomLane, 0, currentZAxis - 5), Vector3.up, LayerMask.NameToLayer("Coin")))
+        {
+            Instantiate(powerupPrefabs.RandomElements(), new Vector3(RandomLane, 1, currentZAxis - 5), Quaternion.identity, parent.transform);
+        }
     }
     void SpawnObstacle(GameObject actualChunck)
     {

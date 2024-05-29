@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
                 dead += 1;
             }
         }
-        if (dead >= 2) PlayerReachWinCondition();
+        if (dead >= 1) PlayerReachWinCondition();
     }
 	//SFX
 	public void PlaySFX(SFX_TYPE type) {
@@ -70,14 +70,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerReachWinCondition() {
-        StartCoroutine(PlayerLoose(Players.OrderBy(p => p.score).First()));
+        StartCoroutine(PlayerLoose(Players.OrderBy(p => p.life).First()));
     }
 
     private IEnumerator PlayerLoose(Player looser) {
         EndGame.winner = Players.Where(player => player != looser).First();
         yield return new WaitForSeconds(5);
         finished = true;
-        if (looser.score == EndGame.winner.score) { //if the scores are the same
+        if (looser.score == EndGame.winner.score && looser.life > 0) { //if the scores are the same
             draw = true;
             EndGame.Draw();
         }

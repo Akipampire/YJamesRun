@@ -15,9 +15,9 @@ TagManager:
   - Projectile
   - Obstacle
   - Ignoring
-  - 
-  - 
-  - 
+  - Coin
+  - PowerUP
+  - NoPUp
   - 
   - 
   - 
